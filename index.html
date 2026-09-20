@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#0a0b0f"/>
+    <title>NovaSwap | Next-Gen DEX</title>
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <div class="app">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo-icon">⚡</div>
+                <div class="logo-text">NovaSwap</div>
+            </div>
+            <div class="header-actions">
+                <div class="network-badge">
+                    <div class="network-dot"></div>
+                    <span id="networkName">Ethereum</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Swap Card -->
+        <div class="swap-card">
+            <div class="swap-box">
+                <div class="swap-box-header">
+                    <span class="swap-label">YOU PAY</span>
+                    <span class="balance-info">
+                        <span>Balance: <span id="fromBalance">0.00</span></span>
+                        <span class="max-btn" onclick="setMax()">MAX</span>
+                    </span>
+                </div>
+                <div class="swap-box-content">
+                    <div style="flex: 1; min-width: 0;">
+                        <input type="number" class="amount-input" id="fromAmount" placeholder="0" oninput="updateRate()" />
+                        <div class="usd-value" id="fromUsd">~$0.00</div>
+                    </div>
+                    <div class="token-selector" onclick="openTokenModal('from')">
+                        <div class="token-icon" id="fromTokenIcon">U</div>
+                        <span class="token-symbol" id="fromTokenSymbol">USDT</span>
+                        <span class="token-arrow">▼</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swap-arrow-btn" onclick="switchTokens()">⇅</div>
+
+            <div class="swap-box">
+                <div class="swap-box-header">
+                    <span class="swap-label">YOU RECEIVE</span>
+                    <span class="balance-info">
+                        <span>Balance: <span id="toBalance">0.00</span></span>
+                    </span>
+                </div>
+                <div class="swap-box-content">
+                    <div style="flex: 1; min-width: 0;">
+                        <input type="number" class="amount-input" id="toAmount" placeholder="0" readonly />
+                        <div class="usd-value" id="toUsd">~$0.00</div>
+                    </div>
+                    <div class="token-selector" onclick="openTokenModal('to')">
+                        <div class="token-icon" id="toTokenIcon">U</div>
+                        <span class="token-symbol" id="toTokenSymbol">USDC</span>
+                        <span class="token-arrow">▼</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rate-info" id="rateInfo" style="display: none;">
+                <span>Rate</span>
+                <span class="rate-value" id="rateValue">-</span>
+            </div>
+        </div>
+
+        <!-- Reown AppKit Connect Button -->
+        <div id="connect-container" style="margin-top: 10px;">
+            <button id="connectBtn" class="main-btn">
+                🔗 Connect Wallet
+            </button>
+        </div>
+
+        <!-- Swap Button -->
+        <button id="swapBtn" class="main-btn" style="display: none;" onclick="handleSwap()">
+            🔄 Swap Tokens
+        </button>
+
+        <!-- Settings -->
+        <div class="settings-row">
+            <div class="settings-item">
+                <span>💱 Slippage</span>
+                <span class="accent">0.5%</span>
+            </div>
+            <div class="settings-icon">⚙️</div>
+        </div>
+
+        <!-- Info Rows -->
+        <div class="info-row" id="infoRows" style="display: none;">
+            <span>Network Fee</span>
+            <span class="value">~$0.50</span>
+        </div>
+        <div class="info-row" id="infoRows2" style="display: none;">
+            <span>Price Impact</span>
+            <span class="value green">&lt; 0.01%</span>
+        </div>
+
+        <div id="statusMsg" class="status-msg"></div>
+
+        <!-- Stats -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value">$2.4M</div>
+                <div class="stat-label">24h Volume</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$18.5M</div>
+                <div class="stat-label">TVL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">12.3K</div>
+                <div class="stat-label">Users</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2026 NovaSwap • Built on Ethereum
+            <div class="footer-links">
+                <a href="#">Docs</a>
+                <a href="#">Audit</a>
+                <a href="#">Twitter</a>
+                <a href="#">Discord</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Token Modal -->
+    <div class="modal-overlay" id="tokenModal" onclick="closeTokenModalOutside(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>Select a Token</h3>
+                <button class="modal-close" onclick="closeTokenModal()">×</button>
+            </div>
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="Search name or paste address" id="tokenSearch" oninput="filterTokens()" />
+            </div>
+            <div class="token-list" id="tokenList"></div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
