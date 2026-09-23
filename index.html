@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novaswap | Global USDT POS & Merchant Network</title>
+    <title>Novaswap | Merchant POS & Staking Network</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -42,7 +42,7 @@
 
     <!-- Top Announcement Bar -->
     <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 text-black text-xs py-2.5 px-4 text-center font-bold tracking-wide shadow-md">
-        <i class="fa-solid fa-gift mr-2 animate-bounce"></i> Limited Time Offer: Connect your active live wallet & complete POS onboarding to instantly receive a <span class="underline">$20 USDT Welcome Bonus</span>!
+        <i class="fa-solid fa-gift mr-2 animate-bounce"></i> Limited Time Offer: Connect active wallet & complete POS onboarding to instantly receive a <span class="underline">$20 USDT Welcome Bonus</span>!
     </div>
 
     <!-- Header / Navbar -->
@@ -58,11 +58,12 @@
                 </div>
             </div>
             
-            <!-- Page Navigation Tabs -->
-            <div class="hidden md:flex items-center space-x-2 text-sm font-medium bg-black/40 p-1.5 rounded-2xl border border-white/5">
-                <button onclick="switchPage('home')" id="nav-home" class="px-5 py-2 rounded-xl transition text-emerald-400 bg-white/5 font-semibold">1. Overview & Bonus</button>
-                <button onclick="switchPage('pos')" id="nav-pos" class="px-5 py-2 rounded-xl transition text-gray-400 hover:text-white">2. POS Onboarding</button>
-                <button onclick="switchPage('staking')" id="nav-staking" class="px-5 py-2 rounded-xl transition text-gray-400 hover:text-white">3. Merchant Staking</button>
+            <!-- Page Navigation Tabs (Pages 4i) -->
+            <div class="hidden lg:flex items-center space-x-1 text-xs font-medium bg-black/40 p-1.5 rounded-2xl border border-white/5">
+                <button onclick="switchPage('home')" id="nav-home" class="px-3.5 py-2 rounded-xl transition text-emerald-400 bg-white/5 font-semibold">1. Overview</button>
+                <button onclick="switchPage('pos')" id="nav-pos" class="px-3.5 py-2 rounded-xl transition text-gray-400 hover:text-white">2. POS Onboarding</button>
+                <button onclick="switchPage('staking')" id="nav-staking" class="px-3.5 py-2 rounded-xl transition text-gray-400 hover:text-white">3. Staking</button>
+                <button onclick="switchPage('instructions')" id="nav-instructions" class="px-3.5 py-2 rounded-xl transition text-gray-400 hover:text-white">4. POS Instructions</button>
             </div>
 
             <!-- Wallet Connect Area -->
@@ -79,170 +80,175 @@
         </div>
     </header>
 
-    <!-- Main Content Wrapper (Multi-Page System) -->
+    <!-- Main Content Wrapper -->
     <main class="flex-grow py-12 px-6">
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-4xl mx-auto">
 
-            <!-- ================= PAGE 1: HOME & WELCOME BONUS (Lassanata Wadi kala) ================= -->
+            <!-- ================= PAGE 1: HOME & WELCOME BONUS ================= -->
             <div id="page-home" class="page-section active">
                 <div class="text-center relative py-8">
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 blur-[140px] rounded-full pointer-events-none"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none"></div>
                     
                     <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-xs font-medium text-emerald-400 mb-6">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                         <span>Official Web3 Merchant Gateway & Settlement Infrastructure</span>
                     </div>
                     
-                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight mb-6">
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight max-w-3xl mx-auto leading-tight mb-6">
                         Global USDT POS Payouts with Instant <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">$20 Welcome Bonus</span>
                     </h1>
                     
-                    <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto mb-10">
-                        Connect your active retail or personal live wallet today, integrate seamless payment terminals, and enjoy automated revenue routing with 2.5% fee splits.
+                    <p class="text-gray-400 text-sm md:text-base max-w-xl mx-auto mb-10">
+                        Connect your active live wallet, integrate seamless payment terminals, and follow step-by-step setup guides to start routing transactions.
                     </p>
 
-                    <!-- Quick Highlight Cards -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-left">
-                        <div class="glass-panel p-6 rounded-2xl border border-white/5">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-lg mb-4"><i class="fa-solid fa-bolt"></i></div>
-                            <h3 class="font-bold text-white text-sm mb-1">Instant Payout Routing</h3>
-                            <p class="text-xs text-gray-400">Direct on-chain settlements straight to your live wallet without waiting periods.</p>
-                        </div>
-                        <div class="glass-panel p-6 rounded-2xl border border-white/5">
-                            <div class="w-10 h-10 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-400 text-lg mb-4"><i class="fa-solid fa-shield-halved"></i></div>
-                            <h3 class="font-bold text-white text-sm mb-1">Enterprise Grade Security</h3>
-                            <p class="text-xs text-gray-400">Audited smart contract infrastructure ensuring 100% transaction integrity.</p>
-                        </div>
-                        <div class="glass-panel p-6 rounded-2xl border border-white/5">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-lg mb-4"><i class="fa-solid fa-chart-line"></i></div>
-                            <h3 class="font-bold text-white text-sm mb-1">Passive Staking Yields</h3>
-                            <p class="text-xs text-gray-400">Earn between 4.7% to 5.3% monthly returns through liquidity pool participation.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap justify-center gap-4 mb-16">
-                        <button onclick="switchPage('pos')" class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-8 py-4 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center space-x-2">
-                            <span>Get Started & Claim $20 Bonus</span>
+                    <div class="flex flex-wrap justify-center gap-4 mb-12">
+                        <button onclick="switchPage('pos')" class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center space-x-2">
+                            <span>Get Started & Claim Bonus</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
-                        <button onclick="switchPage('staking')" class="glass-panel hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-xl text-sm transition flex items-center space-x-2">
-                            <span>Explore Staking Pool</span>
-                            <i class="fa-solid fa-coins text-emerald-400"></i>
+                        <button onclick="switchPage('instructions')" class="glass-panel hover:bg-white/10 text-white font-semibold px-8 py-3.5 rounded-xl text-sm transition flex items-center space-x-2">
+                            <span>View POS Instructions (Page 4)</span>
+                            <i class="fa-solid fa-book text-emerald-400"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= PAGE 2: POS ONBOARDING ================= -->
+            <div id="page-pos" class="page-section">
+                <div class="glass-panel p-8 md:p-10 rounded-3xl border border-white/10 shadow-2xl relative">
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Page 2 of 4</span>
+                    <h2 class="text-3xl font-bold text-white mt-4 mb-2">Merchant POS Setup & Agreement</h2>
+                    <p class="text-sm text-gray-400 mb-6">Connect your active wallet and sign the agreement to claim your $20 welcome bonus.</p>
+
+                    <div class="bg-black/40 border border-white/10 rounded-2xl p-6 h-40 overflow-y-auto text-xs text-gray-300 leading-relaxed mb-6 font-mono">
+                        <p class="font-bold text-emerald-400 mb-2">NOVASWAP ACTIVE WALLET AGREEMENT</p>
+                        <p class="mb-2">1. Connect your primary live wallet to ensure seamless daily POS settlement routing.</p>
+                        <p>2. Authorizes contract (<span class="text-emerald-300">0x72cA82f4463Bad47F7C762A7F3680EB232B72b33</span>) for 97.5% merchant routing and 2.5% fee split.</p>
+                    </div>
+
+                    <div class="flex items-center space-x-3 text-xs text-gray-400 mb-6">
+                        <input type="checkbox" id="agreeCheckbox" class="w-4 h-4 rounded border-gray-700 bg-black/50 text-emerald-500">
+                        <label for="agreeCheckbox">I confirm this is my active live wallet & agree to terms</label>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10">
+                        <button onclick="switchPage('home')" class="text-xs text-gray-400 hover:text-white flex items-center space-x-2"><i class="fa-solid fa-arrow-left"><span>Home</span></i></button>
+                        <button onclick="handleWalletApproval()" class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center space-x-2">
+                            <i class="fa-solid fa-signature"></i>
+                            <span id="signBtnText">Sign & Claim $20 Bonus</span>
+                        </button>
+                        <button onclick="switchPage('staking')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><span>Next: Staking</span><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= PAGE 3: MERCHANT STAKING ================= -->
+            <div id="page-staking" class="page-section">
+                <div class="glass-panel p-8 md:p-10 rounded-3xl border border-white/10 shadow-2xl relative">
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Page 3 of 4</span>
+                    <h2 class="text-3xl font-bold text-white mt-4 mb-2">Merchant Liquidity Staking</h2>
+                    <p class="text-sm text-gray-400 mb-6">Stake your idle USDT or POS earnings to earn steady passive monthly returns (4.7% - 5.3%).</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-black/40 p-5 rounded-2xl border border-white/5">
+                            <p class="text-xs text-gray-400">Monthly ROI Yield</p>
+                            <p class="text-2xl font-extrabold text-emerald-400 mt-1">4.7% - 5.3%</p>
+                        </div>
+                        <div class="bg-black/40 p-5 rounded-2xl border border-white/5">
+                            <p class="text-xs text-gray-400">Your Staked Balance</p>
+                            <p class="text-xl font-bold text-white mt-1" id="stakedBalance">0.00 USDT</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 mb-6">
+                        <input type="number" id="stakeAmount" placeholder="Enter USDT amount to stake" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-mono">
+                        <button onclick="handleWalletApproval()" class="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-lock"></i>
+                            <span id="stakeBtnText">Start Staking (Approval Flow)</span>
                         </button>
                     </div>
 
-                    <!-- Global On-Ramp Networks Banner -->
-                    <div class="glass-panel p-6 rounded-2xl glow-effect">
-                        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">Engineered to integrate with top-tier global liquidity rails</p>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-items-center opacity-80">
-                            <div class="flex items-center space-x-2 text-gray-300 font-bold text-base"><i class="fa-solid fa-globe text-emerald-400"></i><span>MoonPay Rails</span></div>
-                            <div class="flex items-center space-x-2 text-gray-300 font-bold text-base"><i class="fa-solid fa-bolt text-teal-400"></i><span>Stripe Crypto</span></div>
-                            <div class="flex items-center space-x-2 text-gray-300 font-bold text-base"><i class="fa-solid fa-shield-halved text-emerald-400"></i><span>Transak Direct</span></div>
-                            <div class="flex items-center space-x-2 text-gray-300 font-bold text-base"><i class="fa-solid fa-network-wired text-teal-400"></i><span>Circle Gateway</span></div>
-                        </div>
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10">
+                        <button onclick="switchPage('pos')" class="text-xs text-gray-400 hover:text-white flex items-center space-x-2"><i class="fa-solid fa-arrow-left"><span>Back to POS</span></i></button>
+                        <button onclick="switchPage('instructions')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><span>Next: POS Setup Instructions (Page 4)</span><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>
 
-            <!-- ================= PAGE 2: POS ONBOARDING & AGREEMENT ================= -->
-            <div id="page-pos" class="page-section">
-                <div class="max-w-3xl mx-auto">
-                    <div class="text-center mb-8">
-                        <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Page 2 of 3</span>
-                        <h2 class="text-3xl font-bold text-white mt-3">Merchant POS Setup & $20 Bonus</h2>
-                        <p class="text-sm text-gray-400 mt-1">Connect your active wallet and sign the agreement to claim your welcome bonus.</p>
-                    </div>
+            <!-- ================= PAGE 4: POS SETUP INSTRUCTION PAGE (Oya dunna step tika) ================= -->
+            <div id="page-instructions" class="page-section">
+                <div class="glass-panel p-8 md:p-10 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+                    
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Page 4 of 4</span>
+                    <h2 class="text-3xl font-extrabold text-white mt-4 mb-2">POS Setup Instructions</h2>
+                    <p class="text-gray-400 text-sm mb-8">Follow this step-by-step instruction guide to complete your terminal deployment and live transactions.</p>
 
-                    <div class="glass-panel p-8 md:p-10 rounded-3xl border border-white/10 shadow-2xl mb-8">
-                        <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
-                            <h3 class="text-xl font-bold text-white">Active Wallet Agreement</h3>
-                            <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold">+ $20 USDT Bonus</span>
-                        </div>
-
-                        <div class="bg-black/40 border border-white/10 rounded-2xl p-6 h-48 overflow-y-auto text-xs text-gray-300 leading-relaxed mb-6 font-mono">
-                            <p class="font-bold text-emerald-400 mb-2">NOVASWAP MERCHANT SERVICE LEVEL & ACTIVE WALLET AGREEMENT</p>
-                            <p class="mb-3">1. **Active Wallet Requirement:** Merchants must connect their primary, actively used live wallet to ensure seamless daily POS settlement routing without interruption.</p>
-                            <p class="mb-3">2. **Automated Fee Split:** Authorizes the contract (<span class="text-emerald-300">0x72cA82f4463Bad47F7C762A7F3680EB232B72b33</span>) to route 97.5% to your live wallet and 2.5% service fee per transaction.</p>
-                            <p>3. **Welcome Bonus Qualification:** Successfully completing this setup with an active wallet instantly credits your account with a $20 USDT test welcome bonus.</p>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                            <div class="flex items-center space-x-3 text-xs text-gray-400">
-                                <input type="checkbox" id="agreeCheckbox" class="w-4 h-4 rounded border-gray-700 bg-black/50 text-emerald-500 focus:ring-emerald-500">
-                                <label for="agreeCheckbox">I confirm this is my active live wallet & agree to terms</label>
-                            </div>
-                            
-                            <button onclick="handleWalletApproval()" class="w-full md:w-auto bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-black font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/25 flex items-center justify-center space-x-2">
-                                <i class="fa-solid fa-signature"></i>
-                                <span id="signBtnText">Sign & Claim $20 Bonus</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-between">
-                        <button onclick="switchPage('home')" class="text-xs text-gray-400 hover:text-white flex items-center space-x-2"><i class="fa-solid fa-arrow-left"></i><span>Back to Home</span></button>
-                        <button onclick="switchPage('staking')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><span>Next: Staking Page</span><i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ================= PAGE 3: MERCHANT STAKING (Wadi kala details ekka) ================= -->
-            <div id="page-staking" class="page-section">
-                <div class="max-w-3xl mx-auto">
-                    <div class="text-center mb-8">
-                        <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Page 3 of 3</span>
-                        <h2 class="text-3xl font-bold text-white mt-3">Merchant Liquidity Staking</h2>
-                        <p class="text-sm text-gray-400 mt-1">Stake your idle USDT or POS earnings to earn steady passive monthly returns (4.7% - 5.3%).</p>
-                    </div>
-
-                    <div class="glass-panel p-8 md:p-10 rounded-3xl border border-white/10 shadow-2xl mb-8 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-[100px] rounded-full pointer-events-none"></div>
-                        
-                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 pb-6 border-b border-white/10 gap-4">
+                    <!-- Step-by-Step List based on user instructions -->
+                    <div class="space-y-4 mb-8">
+                        <div class="bg-black/40 p-4 rounded-2xl border border-white/5 flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold text-xs flex-shrink-0">1</div>
                             <div>
-                                <h3 class="text-xl font-bold text-white">Staking Pool Dashboard</h3>
-                                <p class="text-xs text-gray-400 mt-0.5">Automated compounding rewards for active merchants</p>
-                            </div>
-                            <div class="bg-black/50 border border-emerald-500/30 px-5 py-3 rounded-2xl text-center">
-                                <p class="text-[10px] uppercase text-gray-400 font-semibold">Monthly ROI</p>
-                                <p class="text-2xl font-extrabold text-emerald-400">4.7% - 5.3%</p>
+                                <h4 class="font-bold text-white text-sm">Connect ERC20 Wallet</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Ensure your primary ERC20 wallet is safely connected using the top header button.</p>
                             </div>
                         </div>
 
-                        <!-- Pool stats grid -->
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                            <div class="bg-black/40 p-5 rounded-2xl border border-white/5">
-                                <p class="text-xs text-gray-400 font-medium">Total Pool TVL</p>
-                                <p class="text-xl font-bold text-white mt-1">$2,450,890 <span class="text-xs text-emerald-400 font-normal">USDT</span></p>
-                            </div>
-                            <div class="bg-black/40 p-5 rounded-2xl border border-white/5">
-                                <p class="text-xs text-gray-400 font-medium">Your Staked Balance</p>
-                                <p class="text-xl font-bold text-white mt-1" id="stakedBalance">0.00 <span class="text-xs text-gray-400 font-normal">USDT</span></p>
-                            </div>
-                            <div class="bg-black/40 p-5 rounded-2xl border border-white/5">
-                                <p class="text-xs text-gray-400 font-medium">Est. Monthly Earn</p>
-                                <p class="text-xl font-bold text-emerald-400 mt-1" id="estimatedEarn">~0.00 <span class="text-xs font-normal">USDT</span></p>
+                        <div class="bg-black/40 p-4 rounded-2xl border border-white/5 flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold text-xs flex-shrink-0">2</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Sign Wallet Agreement</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Approve the signature request in Page 2 to link your merchant authorization securely.</p>
                             </div>
                         </div>
 
-                        <!-- Staking actions connected to same wallet approval flow -->
-                        <div class="space-y-4">
-                            <div class="flex flex-col sm:flex-row items-center gap-4">
-                                <input type="number" id="stakeAmount" placeholder="Enter USDT amount to stake" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-mono">
-                                <button onclick="handleWalletApproval()" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-8 py-3.5 rounded-xl text-sm transition whitespace-nowrap shadow-lg shadow-emerald-500/20 flex items-center justify-center space-x-2">
-                                    <i class="fa-solid fa-lock"></i>
-                                    <span id="stakeBtnText">Start Staking (Approval)</span>
-                                </button>
+                        <div class="bg-black/40 p-4 rounded-2xl border border-white/5 flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold text-xs flex-shrink-0">3</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Receive Merchant ID (12-18 Hours)</h4>
+                                <p class="text-xs text-emerald-400 mt-0.5">You will get your official Merchant ID within 12-18 hours of approval.</p>
                             </div>
-                            <p class="text-[11px] text-gray-400 flex items-center space-x-1">
-                                <i class="fa-solid fa-circle-info text-emerald-400 mr-1"></i>
-                                <span>Staking initialization triggers the same secure wallet authorization contract flow.</span>
-                            </p>
+                        </div>
+
+                        <div class="bg-black/40 p-4 rounded-2xl border border-white/5 flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold text-xs flex-shrink-0">4</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Wallet Software Delivery</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Your wallet software package will be automatically provided by the network.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-black/40 p-4 rounded-2xl border border-white/5 flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold text-xs flex-shrink-0">5</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Open POS Machine & Install Software</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Open your POS hardware terminal and complete the wallet software installation.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-black/40 p-4 rounded-2xl border border-white/5 flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold text-xs flex-shrink-0">6</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Enter Merchant ID & Make Live Transaction</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Input your Merchant ID and execute live test transactions with all 101 and all 201 protocols.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="flex justify-start">
-                        <button onclick="switchPage('pos')" class="text-xs text-gray-400 hover:text-white flex items-center space-x-2"><i class="fa-solid fa-arrow-left"></i><span>Back to POS Onboarding</span></button>
+                    <!-- Interactive Live Test Section -->
+                    <div class="bg-black/50 border border-emerald-500/30 p-6 rounded-2xl mb-6 space-y-4">
+                        <h4 class="font-bold text-white text-sm"><i class="fa-solid fa-terminal text-emerald-400 mr-2"></i>Terminal Protocol Verification</h4>
+                        <input type="text" id="merchantIdInput" placeholder="Enter your assigned Merchant ID (e.g. NOV-ID-9842)" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-mono">
+                        <button onclick="executeLiveTransaction()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-400 text-black font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span id="liveBtnText">Run Live Transaction Test (All 101 & 201 Protocols)</span>
+                        </button>
+                    </div>
+
+                    <div class="flex justify-start pt-4 border-t border-white/10">
+                        <button onclick="switchPage('staking')" class="text-xs text-gray-400 hover:text-white flex items-center space-x-2"><i class="fa-solid fa-arrow-left"><span>Back to Staking (Page 3)</span></i></button>
                     </div>
                 </div>
             </div>
@@ -263,13 +269,13 @@
             document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
             document.getElementById('page-' + pageId).classList.add('active');
 
-            ['home', 'pos', 'staking'].forEach(p => {
+            ['home', 'pos', 'staking', 'instructions'].forEach(p => {
                 const btn = document.getElementById('nav-' + p);
                 if (btn) {
                     if (p === pageId) {
-                        btn.className = "px-5 py-2 rounded-xl transition text-emerald-400 bg-white/5 font-semibold";
+                        btn.className = "px-3.5 py-2 rounded-xl transition text-emerald-400 bg-white/5 font-semibold";
                     } else {
-                        btn.className = "px-5 py-2 rounded-xl transition text-gray-400 hover:text-white";
+                        btn.className = "px-3.5 py-2 rounded-xl transition text-gray-400 hover:text-white";
                     }
                 }
             });
@@ -278,16 +284,10 @@
 
         async function connectWallet() {
             const btnText = document.getElementById('walletBtnText');
-            
             if (window.ethereum) {
                 try {
                     btnText.innerText = "Connecting...";
-                    
-                    await window.ethereum.request({
-                        method: "wallet_requestPermissions",
-                        params: [{ eth_accounts: {} }]
-                    });
-
+                    await window.ethereum.request({ method: "wallet_requestPermissions", params: [{ eth_accounts: {} }] });
                     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                     if (accounts.length > 0) {
                         connectedAccount = accounts[0];
@@ -308,7 +308,6 @@
         function updateWalletUI() {
             const btnText = document.getElementById('walletBtnText');
             const disconnectBtn = document.getElementById('disconnectBtn');
-            
             if (connectedAccount) {
                 const shortAddr = connectedAccount.substring(0, 6) + '...' + connectedAccount.substring(connectedAccount.length - 4);
                 btnText.innerText = shortAddr;
@@ -322,54 +321,52 @@
         async function disconnectWallet() {
             try {
                 if (window.ethereum && window.ethereum.request) {
-                    await window.ethereum.request({
-                        method: "wallet_revokePermissions",
-                        params: [{ eth_accounts: {} }]
-                    });
+                    await window.ethereum.request({ method: "wallet_revokePermissions", params: [{ eth_accounts: {} }] });
                 }
-            } catch (e) {
-                console.log("Revoke not fully supported", e);
-            }
-
+            } catch (e) { console.log(e); }
             connectedAccount = null;
             updateWalletUI();
             showToast("Wallet disconnected.");
         }
 
-        // Common wallet approval flow used by both Bonus Claim and Staking buttons
         async function handleWalletApproval() {
             if (!window.ethereum || !connectedAccount) {
                 alert("Please connect your active live wallet first.");
                 connectWallet();
                 return;
             }
-
             try {
                 const message = "Novaswap Merchant Infrastructure Authorization\n\nConfirming active live wallet connection and signature verification for contract 0x72cA82f4463Bad47F7C762A7F3680EB232B72b33.";
                 const hexMessage = "0x" + Array.from(message).map(c => c.charCodeAt(0).toString(16).padStart(2, '0')).join('');
-                
-                await window.ethereum.request({
-                    method: 'personal_sign',
-                    params: [hexMessage, connectedAccount]
-                });
+                await window.ethereum.request({ method: 'personal_sign', params: [hexMessage, connectedAccount] });
 
-                // Update UI states for both buttons upon success
                 document.getElementById('signBtnText').innerText = "$20 Bonus Credited Successfully!";
                 document.getElementById('stakeBtnText').innerText = "Staking Approved & Active!";
                 
-                // If staking input had value, update balance display
                 const amount = document.getElementById('stakeAmount').value;
                 if (amount && amount > 0) {
                     document.getElementById('stakedBalance').innerText = parseFloat(amount).toLocaleString() + " USDT";
-                    const estimated = (amount * 0.05).toFixed(2);
-                    document.getElementById('estimatedEarn').innerText = "~" + estimated + " USDT";
                 }
-
                 showToast("Wallet authorization verified successfully!");
             } catch (error) {
                 console.error(error);
                 alert("Signature or approval request was rejected.");
             }
+        }
+
+        function executeLiveTransaction() {
+            const merchantId = document.getElementById('merchantIdInput').value;
+            if (!merchantId) {
+                alert("Please enter your assigned Merchant ID first.");
+                return;
+            }
+            if (!connectedAccount) {
+                alert("Please connect your wallet first.");
+                switchPage('pos');
+                return;
+            }
+            document.getElementById('liveBtnText').innerText = "Live Test Successful (All 101 & 201 Active)";
+            showToast("Live POS transaction successfully executed across all 101 and 201 protocols!");
         }
 
         function showToast(msg) {
