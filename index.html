@@ -266,7 +266,7 @@
         </div>
     </footer>
 
-    <!-- Web3 & Mobile Deep Link / Extension Detection Script with Disconnect Logic -->
+    <!-- Web3 & Mobile Deep Link / Extension Detection Script with Forced Account Selection -->
     <script>
         let connectedAccount = null;
 
@@ -277,8 +277,8 @@
 
         async function handleWalletAction() {
             if (connectedAccount) {
-                if (confirm("Do you want to disconnect your current wallet?")) {
-                    disconnectWallet();
+                if (confirm("Do you want to disconnect and switch your wallet?")) {
+                    await disconnectWallet();
                 }
             } else {
                 await connectWallet();
@@ -291,10 +291,19 @@
             if (window.ethereum) {
                 try {
                     btnText.innerText = "Connecting...";
+                    
+                    // Force MetaMask to prompt account selection popup instead of auto-reconnecting
+                    await window.ethereum.request({
+                        method: "wallet_requestPermissions",
+                        params: [{ eth_accounts: {} }]
+                    });
+
                     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    connectedAccount = accounts[0];
-                    updateWalletUI();
-                    showToast("Wallet connected successfully!");
+                    if (accounts.length > 0) {
+                        connectedAccount = accounts[0];
+                        updateWalletUI();
+                        showToast("Wallet connected successfully!");
+                    }
                 } catch (error) {
                     console.error(error);
                     btnText.innerText = "Connect Wallet";
@@ -323,7 +332,19 @@
             }
         }
 
-        function disconnectWallet() {
+        async function disconnectWallet() {
+            try {
+                // Try to revoke permissions if supported by the provider to fully clear session
+                if (window.ethereum && window.ethereum.request) {
+                    await window.ethereum.request({
+                        method: "wallet_revokePermissions",
+                        params: [{ eth_accounts: {} }]
+                    });
+                }
+            } catch (e) {
+                console.log("Revoke permissions not fully supported or ignored by wallet", e);
+            }
+
             connectedAccount = null;
             updateWalletUI();
             showToast("Wallet disconnected.");
