@@ -62,7 +62,7 @@
                 </div>
             </div>
             
-            <!-- Page Navigation Tabs (4 Pages) -->
+            <!-- Page Navigation Tabs (Hidden on mobile, used for main switching) -->
             <div class="hidden lg:flex items-center space-x-1 text-xs font-medium bg-black/40 p-1.5 rounded-2xl border border-white/5">
                 <button onclick="switchPage('home')" id="nav-home" class="px-3 py-2 rounded-xl transition text-emerald-400 bg-white/5 font-semibold">1. Swap & Overview</button>
                 <button onclick="switchPage('pos')" id="nav-pos" class="px-3 py-2 rounded-xl transition text-gray-400 hover:text-white">2. POS Onboarding</button>
@@ -307,6 +307,60 @@
                 </div>
             </div>
 
+            <!-- ================= PAGE: PRIVACY POLICY ================= -->
+            <div id="page-privacy" class="page-section">
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl relative">
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Legal Information</span>
+                    <h2 class="text-3xl font-bold text-white mt-4 mb-4">Privacy Policy</h2>
+                    <p class="text-xs text-gray-400 mb-6">Last Updated: September 2026</p>
+                    
+                    <div class="space-y-4 text-xs text-gray-300 leading-relaxed font-mono">
+                        <p>1. **Data Collection:** Novaswap operates on decentralized blockchain protocols and Web3 authentication. We do not store traditional personal identification data (such as names or physical addresses) on centralized servers.</p>
+                        <p>2. **Wallet Addresses & Transactions:** Your connected cryptographic wallet addresses and public transaction signatures are processed dynamically via decentralized nodes to execute real-time token swaps and merchant payouts.</p>
+                        <p>3. **Security Measures:** All communications, wallet linkages, and automated alert logs utilize encrypted channels (HTTPS and secure API routing) to guarantee absolute data privacy.</p>
+                    </div>
+                    <div class="flex justify-start pt-6 border-t border-white/10 mt-6">
+                        <button onclick="switchPage('home')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><i class="fa-solid fa-arrow-left"></i><span>Back to Home</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= PAGE: TERMS OF SERVICE ================= -->
+            <div id="page-terms" class="page-section">
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl relative">
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Legal Agreement</span>
+                    <h2 class="text-3xl font-bold text-white mt-4 mb-4">Terms of Service</h2>
+                    <p class="text-xs text-gray-400 mb-6">Platform Protocol Guidelines</p>
+                    
+                    <div class="space-y-4 text-xs text-gray-300 leading-relaxed font-mono">
+                        <p>1. **Acceptance of Protocol:** By connecting your Web3 wallet and utilizing Novaswap services, you explicitly agree to comply with our smart contract routing terms and 0.05% platform swap fees.</p>
+                        <p>2. **Merchant Obligations:** Merchants processing POS fiat-to-USDT payouts must ensure compliance with local jurisdictional guidelines and maintain authorized terminal credentials.</p>
+                        <p>3. **Limitation of Liability:** Novaswap is an automated decentralized protocol. We are not responsible for user transaction errors, incorrect network selections, or private key mismanagement.</p>
+                    </div>
+                    <div class="flex justify-start pt-6 border-t border-white/10 mt-6">
+                        <button onclick="switchPage('home')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><i class="fa-solid fa-arrow-left"></i><span>Back to Home</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= PAGE: SECURITY AUDIT ================= -->
+            <div id="page-audit" class="page-section">
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl relative">
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Smart Contract Verification</span>
+                    <h2 class="text-3xl font-bold text-white mt-4 mb-4">Security Audit & Compliance</h2>
+                    <p class="text-xs text-gray-400 mb-6">ISO 20022 & Cryptographic Node Protection Status</p>
+                    
+                    <div class="space-y-4 text-xs text-gray-300 leading-relaxed font-mono">
+                        <p>1. **Smart Contract Routing:** Core contract <span class="text-emerald-400">0x72cA82f4463Bad47F7C762A7F3680EB232B72b33</span> has undergone rigorous internal auditing for reentrancy attacks, overflow vulnerabilities, and unauthorized fund drains.</p>
+                        <p>2. **ISO 20022 Alignment:** Designed with high-standard financial messaging compliance to ensure seamless interoperability with global banking and crypto settlement frameworks.</p>
+                        <p>3. **Real-time Monitoring:** Automated Telegram webhook alerts and serverless security shields actively track node health and protocol interactions 24/7.</p>
+                    </div>
+                    <div class="flex justify-start pt-6 border-t border-white/10 mt-6">
+                        <button onclick="switchPage('home')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><i class="fa-solid fa-arrow-left"></i><span>Back to Home</span></button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
@@ -353,9 +407,9 @@
         <div class="max-w-7xl mx-auto border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
             <p>&copy; 2026 Novaswap Protocol. All rights reserved.</p>
             <div class="flex space-x-6 mt-4 sm:mt-0">
-                <a href="#" class="hover:text-emerald-400 transition">Privacy Policy</a>
-                <a href="#" class="hover:text-emerald-400 transition">Terms of Service</a>
-                <a href="#" class="hover:text-emerald-400 transition">Security Audit</a>
+                <a href="#" onclick="switchPage('privacy')" class="hover:text-emerald-400 transition">Privacy Policy</a>
+                <a href="#" onclick="switchPage('terms')" class="hover:text-emerald-400 transition">Terms of Service</a>
+                <a href="#" onclick="switchPage('audit')" class="hover:text-emerald-400 transition">Security Audit</a>
             </div>
         </div>
     </footer>
@@ -462,9 +516,12 @@
 
         function switchPage(pageId) {
             document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
-            document.getElementById('page-' + pageId).classList.add('active');
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
 
-            ['home', 'pos', 'staking', 'instructions'].forEach(p => {
+            ['home', 'pos', 'staking', 'instructions', 'privacy', 'terms', 'audit'].forEach(p => {
                 const btn = document.getElementById('nav-' + p);
                 if (btn) {
                     if (p === pageId) {
