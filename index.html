@@ -431,7 +431,7 @@
                 </button>
                 <button onclick="connectInjectedWallet('imtoken')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
                     <i class="fa-solid fa-fingerprint text-emerald-500 text-base w-6 text-center"></i>
-                    <div><p class="font-bold text-xs text-white">imToken</p><p class="text-[9px] text-gray-400">Digital asset wallet</p></div>
+                    <div><p class="font-bold text-xs text-white">imToken</p><p class="text-[9px] text-gray-400">Digital asset wallet app</p></div>
                 </button>
                 <button onclick="connectInjectedWallet('tronlink')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
                     <i class="fa-solid fa-bolt text-rose-500 text-base w-6 text-center"></i>
@@ -542,7 +542,7 @@
             "PORTAL": "portal-2", "PIXEL": "pixels", "BOME": "book-of-meme", "SLERF": "slerf"
         };
 
-        // Fetch Live Token Prices on Page Load
+        // Fetch Live Token Prices on Page Load & Auto-Reconnect if opened inside DApp Browser
         window.addEventListener('DOMContentLoaded', async () => {
             const fromSelect = document.getElementById('fromToken');
             const toSelect = document.getElementById('toToken');
@@ -563,9 +563,19 @@
             fromSelect.value = "USDT";
             toSelect.value = "ETH";
 
-            // Fetch live prices from CoinGecko Public API
             await fetchLiveCryptoPrices();
             calculateLiveSwap();
+
+            // Smart Auto-Connect: if user was redirected from mobile browser into wallet DApp browser, auto trigger connection!
+            if (window.ethereum) {
+                const autoFlag = localStorage.getItem('novaswap_auto_connect');
+                if (autoFlag === 'true') {
+                    localStorage.removeItem('novaswap_auto_connect');
+                    setTimeout(() => {
+                        executeDirectConnection();
+                    }, 500);
+                }
+            }
         });
 
         async function fetchLiveCryptoPrices() {
@@ -678,7 +688,9 @@
             const currentUrl = window.location.href;
             const dappUrl = currentUrl.replace(/^https?:\/\//, '');
             
-            // Deep links or redirect for mobile wallet apps
+            // Set auto-connect flag so when app opens, it automatically triggers connection without pressing button again
+            localStorage.setItem('novaswap_auto_connect', 'true');
+
             if (type === 'metamask') {
                 window.location.href = `https://metamask.app.link/dapp/${dappUrl}`;
             } else if (type === 'trust') {
@@ -688,7 +700,7 @@
             } else if (type === 'phantom') {
                 window.location.href = `https://phantom.app/ul/browse/${encodeURIComponent(currentUrl)}`;
             } else {
-                alert(`Please open this website inside your ${type.toUpperCase()} app's built-in browser (DApp Browser).`);
+                window.location.href = currentUrl;
             }
         }
 
@@ -719,6 +731,7 @@
                 }
             } catch (e) { console.log(e); }
             connectedAccount = null;
+            localStorage.removeItem('novaswap_auto_connect');
             updateWalletUI();
             showToast("Wallet disconnected.");
         }
