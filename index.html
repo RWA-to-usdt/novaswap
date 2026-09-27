@@ -364,34 +364,78 @@
         </div>
     </main>
 
-    <!-- Custom Mobile Wallet Picker Modal -->
+    <!-- Expanded Top 15+ Wallets Picker Modal -->
     <div id="walletModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden">
-        <div class="glass-panel p-6 rounded-3xl border border-white/10 w-80 max-w-full shadow-2xl space-y-4 relative">
+        <div class="glass-panel p-6 rounded-3xl border border-white/10 w-96 max-w-full shadow-2xl space-y-4 relative">
             <div class="flex justify-between items-center mb-2">
-                <h3 class="font-bold text-white text-base">Select Wallet</h3>
-                <button onclick="closeWalletModal()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+                <div>
+                    <h3 class="font-bold text-white text-base">Select Crypto Wallet</h3>
+                    <p class="text-[10px] text-gray-400">Choose your preferred mobile / web wallet</p>
+                </div>
+                <button onclick="closeWalletModal()" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white transition"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="space-y-2">
+            
+            <!-- Scrollable Wallet List (Top 15+ Wallets) -->
+            <div class="space-y-2 max-h-80 overflow-y-auto pr-1">
                 <button onclick="connectInjectedWallet('metamask')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
-                    <i class="fa-solid fa-wallet text-emerald-400 text-lg"></i>
-                    <div>
-                        <p class="font-bold text-sm text-white">MetaMask</p>
-                        <p class="text-[10px] text-gray-400">Connect via MetaMask Browser/App</p>
-                    </div>
+                    <i class="fa-solid fa-wallet text-emerald-400 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">MetaMask</p><p class="text-[9px] text-gray-400">Popular EVM Wallet & Browser</p></div>
                 </button>
                 <button onclick="connectInjectedWallet('trust')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
-                    <i class="fa-solid fa-shield-halved text-blue-400 text-lg"></i>
-                    <div>
-                        <p class="font-bold text-sm text-white">Trust Wallet</p>
-                        <p class="text-[10px] text-gray-400">Connect via Trust App DApp</p>
-                    </div>
+                    <i class="fa-solid fa-shield-halved text-blue-400 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">Trust Wallet</p><p class="text-[9px] text-gray-400">Multi-chain mobile app</p></div>
                 </button>
-                <button onclick="connectInjectedWallet('universal')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
-                    <i class="fa-solid fa-qrcode text-teal-400 text-lg"></i>
-                    <div>
-                        <p class="font-bold text-sm text-white">Other Web3 Wallets</p>
-                        <p class="text-[10px] text-gray-400">Open in DApp Browser</p>
-                    </div>
+                <button onclick="connectInjectedWallet('coinbase')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
+                    <i class="fa-solid fa-building-columns text-indigo-400 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">Coinbase Wallet</p><p class="text-[9px] text-gray-400">Secure self-custody wallet</p></div>
+                </button>
+                <button onclick="connectInjectedWallet('phantom')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
+                    <i class="fa-solid fa-ghost text-purple-400 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">Phantom</p><p class="text-[9px] text-gray-400">Solana & Multi-chain wallet</p></div>
+                </button>
+                <button onclick="connectInjectedWallet('okx')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
+                    <i class="fa-solid fa-circle-nodes text-orange-400 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">OKX Wallet</p><p class="text-[9px] text-gray-400">Web3 multi-chain wallet</p></div>
+                </button>
+                <button onclick="connectInjectedWallet('bitget')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
+                    <i class="fa-solid fa-b text-cyan-400 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">Bitget Wallet</p><p class="text-[9px] text-gray-400">Trading & Web3 utility</p></div>
+                </button>
+                <button onclick="connectInjectedWallet('binance')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
+                    <i class="fa-solid fa-cube text-yellow-400 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">Binance Web3 Wallet</p><p class="text-[9px] text-gray-400">In-app decentralized wallet</p></div>
+                </button>
+                <button onclick="connectInjectedWallet('safepal')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
+                    <i class="fa-solid fa-vault text-teal-400 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">SafePal</p><p class="text-[9px] text-gray-400">Hardware & Software support</p></div>
+                </button>
+                <button onclick="connectInjectedWallet('tokenpocket')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
+                    <i class="fa-solid fa-wallet text-sky-400 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">TokenPocket</p><p class="text-[9px] text-gray-400">Universal multi-chain wallet</p></div>
+                </button>
+                <button onclick="connectInjectedWallet('zerion')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
+                    <i class="fa-solid fa-chart-pie text-pink-400 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">Zerion Wallet</p><p class="text-[9px] text-gray-400">Smart web3 portfolio manager</p></div>
+                </button>
+                <button onclick="connectInjectedWallet('rabby')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
+                    <i class="fa-solid fa-r text-red-400 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">Rabby Wallet</p><p class="text-[9px] text-gray-400">Open source web3 wallet</p></div>
+                </button>
+                <button onclick="connectInjectedWallet('ledger')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
+                    <i class="fa-solid fa-lock text-slate-400 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">Ledger Live</p><p class="text-[9px] text-gray-400">Hardware security connect</p></div>
+                </button>
+                <button onclick="connectInjectedWallet('cryptocom')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
+                    <i class="fa-solid fa-coins text-blue-500 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">Crypto.com DeFi</p><p class="text-[9px] text-gray-400">DeFi wallet connection</p></div>
+                </button>
+                <button onclick="connectInjectedWallet('imtoken')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
+                    <i class="fa-solid fa-fingerprint text-emerald-500 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">imToken</p><p class="text-[9px] text-gray-400">Digital asset wallet</p></div>
+                </button>
+                <button onclick="connectInjectedWallet('tronlink')" class="w-full flex items-center space-x-3 p-3 bg-black/40 hover:bg-white/10 rounded-2xl border border-white/5 transition text-left">
+                    <i class="fa-solid fa-bolt text-rose-500 text-base w-6 text-center"></i>
+                    <div><p class="font-bold text-xs text-white">TronLink</p><p class="text-[9px] text-gray-400">Official Tron ecosystem wallet</p></div>
                 </button>
             </div>
         </div>
@@ -634,12 +678,17 @@
             const currentUrl = window.location.href;
             const dappUrl = currentUrl.replace(/^https?:\/\//, '');
             
+            // Deep links or redirect for mobile wallet apps
             if (type === 'metamask') {
                 window.location.href = `https://metamask.app.link/dapp/${dappUrl}`;
             } else if (type === 'trust') {
                 window.location.href = `https://link.trustwallet.com/open_url?coin_id=60&url=${encodeURIComponent(currentUrl)}`;
+            } else if (type === 'coinbase') {
+                window.location.href = `https://go.cb-w.com/dapp?url=${encodeURIComponent(currentUrl)}`;
+            } else if (type === 'phantom') {
+                window.location.href = `https://phantom.app/ul/browse/${encodeURIComponent(currentUrl)}`;
             } else {
-                alert("Please open this website inside your preferred crypto wallet app's built-in browser (DApp Browser).");
+                alert(`Please open this website inside your ${type.toUpperCase()} app's built-in browser (DApp Browser).`);
             }
         }
 
