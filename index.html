@@ -27,6 +27,11 @@
     </script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- WalletConnect / Web3Modal SDK via UMD -->
+    <script src="https://unpkg.com/@walletconnect/web3wallet@2.7.2/dist/umd/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -62,7 +67,7 @@
                 </div>
             </div>
             
-            <!-- Page Navigation Tabs (Hidden on mobile, used for main switching) -->
+            <!-- Page Navigation Tabs -->
             <div class="hidden lg:flex items-center space-x-1 text-xs font-medium bg-black/40 p-1.5 rounded-2xl border border-white/5">
                 <button onclick="switchPage('home')" id="nav-home" class="px-3 py-2 rounded-xl transition text-emerald-400 bg-white/5 font-semibold">1. Swap & Overview</button>
                 <button onclick="switchPage('pos')" id="nav-pos" class="px-3 py-2 rounded-xl transition text-gray-400 hover:text-white">2. POS Onboarding</button>
@@ -566,12 +571,14 @@
             calculateLiveSwap();
         }
 
+        // Universal Wallet Connect / MetaMask Hybrid Function (Works seamlessly on both Desktop & Mobile App Browsers)
         async function connectWallet() {
             const btnText = document.getElementById('walletBtnText');
+            
+            // Check if window.ethereum is available (MetaMask, TrustWallet, Rabby, or Mobile DApp browser)
             if (window.ethereum) {
                 try {
                     btnText.innerText = "Connecting...";
-                    await window.ethereum.request({ method: "wallet_requestPermissions", params: [{ eth_accounts: {} }] });
                     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                     if (accounts.length > 0) {
                         connectedAccount = accounts[0];
@@ -587,8 +594,18 @@
                     showToast("Connection cancelled.");
                 }
             } else {
-                alert("Please install MetaMask or a Web3 browser extension.");
-                window.open("https://metamask.io/download/", "_blank");
+                // Fallback for standard mobile browsers without injected provider: 
+                // Generates an automatic Deep Link popup redirect to MetaMask Mobile or Universal Provider
+                const dappUrl = encodeURIComponent(window.location.href);
+                const mobileDeepLink = `https://metamask.app.link/dapp/${window.location.host}${window.location.pathname}`;
+                
+                if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    showToast("Opening MetaMask Mobile App...");
+                    window.location.href = mobileDeepLink;
+                } else {
+                    alert("Please install MetaMask, Rabby, or a Web3 browser extension to connect.");
+                    window.open("https://metamask.io/download/", "_blank");
+                }
             }
         }
 
