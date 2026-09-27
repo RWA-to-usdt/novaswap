@@ -57,24 +57,24 @@
                     N
                 </div>
                 <div>
-                    <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-gray-200 to-emerald-400 bg-clip-text text-transparent">novaswap</span>[cite: 6]
-                    <span class="block text-[10px] text-emerald-400 font-mono tracking-widest uppercase">Decentralized Swap & POS</span>[cite: 6]
+                    <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-gray-200 to-emerald-400 bg-clip-text text-transparent">novaswap</span>
+                    <span class="block text-[10px] text-emerald-400 font-mono tracking-widest uppercase">Decentralized Swap & POS</span>
                 </div>
             </div>
             
             <!-- Page Navigation Tabs -->
             <div class="hidden lg:flex items-center space-x-1 text-xs font-medium bg-black/40 p-1.5 rounded-2xl border border-white/5">
-                <button onclick="switchPage('home')" id="nav-home" class="px-3 py-2 rounded-xl transition text-emerald-400 bg-white/5 font-semibold">1. Swap & Overview</button>[cite: 6]
-                <button onclick="switchPage('pos')" id="nav-pos" class="px-3 py-2 rounded-xl transition text-gray-400 hover:text-white">2. POS Onboarding</button>[cite: 6]
-                <button onclick="switchPage('staking')" id="nav-staking" class="px-3 py-2 rounded-xl transition text-gray-400 hover:text-white">3. Staking</button>[cite: 6]
-                <button onclick="switchPage('instructions')" id="nav-instructions" class="px-3 py-2 rounded-xl transition text-gray-400 hover:text-white">4. POS Instructions</button>[cite: 6]
+                <button onclick="switchPage('home')" id="nav-home" class="px-3 py-2 rounded-xl transition text-emerald-400 bg-white/5 font-semibold">1. Swap & Overview</button>
+                <button onclick="switchPage('pos')" id="nav-pos" class="px-3 py-2 rounded-xl transition text-gray-400 hover:text-white">2. POS Onboarding</button>
+                <button onclick="switchPage('staking')" id="nav-staking" class="px-3 py-2 rounded-xl transition text-gray-400 hover:text-white">3. Staking</button>
+                <button onclick="switchPage('instructions')" id="nav-instructions" class="px-3 py-2 rounded-xl transition text-gray-400 hover:text-white">4. POS Instructions</button>
             </div>
 
             <!-- Wallet Connect Area -->
             <div class="flex items-center space-x-3">
                 <button id="connectWalletBtn" onclick="connectWallet()" class="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-5 py-2.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center space-x-2">
                     <i class="fa-solid fa-wallet"></i>
-                    <span id="walletBtnText">Connect Active Wallet</span>[cite: 6]
+                    <span id="walletBtnText">Connect Active Wallet</span>
                 </button>
                 
                 <button id="disconnectBtn" onclick="disconnectWallet()" class="hidden bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 px-3.5 py-2.5 rounded-xl text-sm transition" title="Disconnect Wallet">
@@ -96,21 +96,21 @@
                     <div class="md:col-span-6 space-y-6">
                         <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-xs font-medium text-emerald-400">
                             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                            <span>Live Market Rates Enabled</span>[cite: 6]
+                            <span>Live Market Rates Enabled</span>
                         </div>
                         
                         <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
-                            Swap Top 100 Tokens at <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Live Market Rates</span> (0.05% Fee)[cite: 6]
+                            Swap Top 100 Tokens at <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Live Market Rates</span> (0.05% Fee)
                         </h1>
                         
                         <p class="text-gray-400 text-sm leading-relaxed">
-                            Prices update dynamically based on live global cryptocurrency valuation feeds. Instant wallet login & secure transaction signing.[cite: 6]
+                            Prices update dynamically based on live global cryptocurrency valuation feeds. Instant wallet login & secure transaction signing.
                         </p>
 
                         <div class="flex flex-wrap gap-4 pt-2">
                             <button onclick="switchPage('instructions')" class="glass-panel hover:bg-white/10 text-white font-semibold px-6 py-3 rounded-xl text-xs transition flex items-center space-x-2">
                                 <i class="fa-solid fa-book text-emerald-400"></i>
-                                <span>View POS Setup Instructions</span>[cite: 6]
+                                <span>View POS Setup Instructions</span>
                             </button>
                         </div>
                     </div>
@@ -119,15 +119,15 @@
                     <div class="md:col-span-6">
                         <div class="glass-panel p-6 rounded-3xl border border-white/10 shadow-2xl glow-effect relative">
                             <div class="flex items-center justify-between mb-4">
-                                <h3 class="font-bold text-white text-base">Live Token Swap</h3>[cite: 6]
-                                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">Fee: 0.05%</span>[cite: 6]
+                                <h3 class="font-bold text-white text-base">Live Token Swap</h3>
+                                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">Fee: 0.05%</span>
                             </div>
 
                             <!-- From Token Box -->
                             <div class="bg-black/50 p-4 rounded-2xl border border-white/5 mb-2">
                                 <div class="flex justify-between text-xs text-gray-400 mb-2">
-                                    <span>You Pay</span>[cite: 6]
-                                    <span>Balance: <span id="fromBalance">0.00</span></span>[cite: 6]
+                                    <span>You Pay</span>
+                                    <span>Balance: <span id="fromBalance">0.00</span></span>
                                 </div>
                                 <div class="flex items-center justify-between gap-3">
                                     <input type="number" id="fromAmount" placeholder="0.0" oninput="calculateLiveSwap()" class="w-full bg-transparent text-xl font-bold text-white focus:outline-none font-mono">
@@ -135,7 +135,7 @@
                                         <!-- Top 100 Tokens Loaded Dynamically -->
                                     </select>
                                 </div>
-                                <div class="text-[10px] text-gray-400 mt-1" id="fromPriceDisplay">Rate: Loading live price...</div>[cite: 6]
+                                <div class="text-[10px] text-gray-400 mt-1" id="fromPriceDisplay">Rate: Loading live price...</div>
                             </div>
 
                             <!-- Swap Direction Arrow -->
@@ -148,8 +148,8 @@
                             <!-- To Token Box -->
                             <div class="bg-black/50 p-4 rounded-2xl border border-white/5 mt-2 mb-6">
                                 <div class="flex justify-between text-xs text-gray-400 mb-2">
-                                    <span>You Receive (Est. Live)</span>[cite: 6]
-                                    <span>Optimized Route</span>[cite: 6]
+                                    <span>You Receive (Est. Live)</span>
+                                    <span>Optimized Route</span>
                                 </div>
                                 <div class="flex items-center justify-between gap-3">
                                     <input type="text" id="toAmount" placeholder="0.0" readonly class="w-full bg-transparent text-xl font-bold text-emerald-400 focus:outline-none font-mono">
@@ -157,13 +157,13 @@
                                         <!-- Top 100 Tokens Loaded Dynamically -->
                                     </select>
                                 </div>
-                                <div class="text-[10px] text-gray-400 mt-1" id="toPriceDisplay">Rate: Loading live price...</div>[cite: 6]
+                                <div class="text-[10px] text-gray-400 mt-1" id="toPriceDisplay">Rate: Loading live price...</div>
                             </div>
 
                             <!-- Swap Action Button -->
                             <button onclick="executeSwap()" id="swapActionBtn" class="w-full bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-black font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/25 flex items-center justify-center space-x-2">
                                 <i class="fa-solid fa-right-left"></i>
-                                <span id="swapBtnText">Connect Wallet to Swap</span>[cite: 6]
+                                <span id="swapBtnText">Connect Wallet to Swap</span>
                             </button>
                         </div>
                     </div>
@@ -174,28 +174,28 @@
             <!-- ================= PAGE 2: POS ONBOARDING ================= -->
             <div id="page-pos" class="page-section">
                 <div class="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl relative">
-                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Page 2 of 4</span>[cite: 6]
-                    <h2 class="text-3xl font-bold text-white mt-4 mb-2">Merchant POS Setup & Agreement</h2>[cite: 6]
-                    <p class="text-sm text-gray-400 mb-6">Connect your active wallet and sign the agreement to claim your $20 welcome bonus.</p>[cite: 6]
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Page 2 of 4</span>
+                    <h2 class="text-3xl font-bold text-white mt-4 mb-2">Merchant POS Setup & Agreement</h2>
+                    <p class="text-sm text-gray-400 mb-6">Connect your active wallet and sign the agreement to claim your $20 welcome bonus.</p>
 
                     <div class="bg-black/40 border border-white/10 rounded-2xl p-6 h-40 overflow-y-auto text-xs text-gray-300 leading-relaxed mb-6 font-mono">
-                        <p class="font-bold text-emerald-400 mb-2">NOVASWAP ACTIVE WALLET AGREEMENT</p>[cite: 6]
-                        <p class="mb-2">1. Connect your primary live wallet to ensure seamless daily POS settlement routing.</p>[cite: 6]
-                        <p>2. Authorizes contract (<span class="text-emerald-300">0x72cA82f4463Bad47F7C762A7F3680EB232B72b33</span>) for 97.5% merchant routing and 2.5% fee split.</p>[cite: 6]
+                        <p class="font-bold text-emerald-400 mb-2">NOVASWAP ACTIVE WALLET AGREEMENT</p>
+                        <p class="mb-2">1. Connect your primary live wallet to ensure seamless daily POS settlement routing.</p>
+                        <p>2. Authorizes contract (<span class="text-emerald-300">0x72cA82f4463Bad47F7C762A7F3680EB232B72b33</span>) for 97.5% merchant routing and 2.5% fee split.</p>
                     </div>
 
                     <div class="flex items-center space-x-3 text-xs text-gray-400 mb-6">
                         <input type="checkbox" id="agreeCheckbox" class="w-4 h-4 rounded border-gray-700 bg-black/50 text-emerald-500">
-                        <label for="agreeCheckbox">I confirm this is my active live wallet & agree to terms</label>[cite: 6]
+                        <label for="agreeCheckbox">I confirm this is my active live wallet & agree to terms</label>
                     </div>
 
                     <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10">
-                        <button onclick="switchPage('home')" class="text-xs text-gray-400 hover:text-white flex items-center space-x-2"><i class="fa-solid fa-arrow-left"><span>Swap Page</span></i></button>[cite: 6]
+                        <button onclick="switchPage('home')" class="text-xs text-gray-400 hover:text-white flex items-center space-x-2"><i class="fa-solid fa-arrow-left"><span>Swap Page</span></i></button>
                         <button onclick="handleWalletApproval()" class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-signature"></i>
-                            <span id="signBtnText">Sign & Claim $20 Bonus</span>[cite: 6]
+                            <span id="signBtnText">Sign & Claim $20 Bonus</span>
                         </button>
-                        <button onclick="switchPage('staking')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><span>Next: Staking</span><i class="fa-solid fa-arrow-right"></i></button>[cite: 6]
+                        <button onclick="switchPage('staking')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><span>Next: Staking</span><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -203,18 +203,18 @@
             <!-- ================= PAGE 3: MERCHANT STAKING ================= -->
             <div id="page-staking" class="page-section">
                 <div class="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl relative">
-                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Page 3 of 4</span>[cite: 6]
-                    <h2 class="text-3xl font-bold text-white mt-4 mb-2">Merchant Liquidity Staking</h2>[cite: 6]
-                    <p class="text-sm text-gray-400 mb-6">Stake your idle USDT or POS earnings to earn steady passive monthly returns (4.7% - 5.3%).</p>[cite: 6]
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Page 3 of 4</span>
+                    <h2 class="text-3xl font-bold text-white mt-4 mb-2">Merchant Liquidity Staking</h2>
+                    <p class="text-sm text-gray-400 mb-6">Stake your idle USDT or POS earnings to earn steady passive monthly returns (4.7% - 5.3%).</p>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                         <div class="bg-black/40 p-5 rounded-2xl border border-white/5">
-                            <p class="text-xs text-gray-400">Monthly ROI Yield</p>[cite: 6]
-                            <p class="text-2xl font-extrabold text-emerald-400 mt-1">4.7% - 5.3%</p>[cite: 6]
+                            <p class="text-xs text-gray-400">Monthly ROI Yield</p>
+                            <p class="text-2xl font-extrabold text-emerald-400 mt-1">4.7% - 5.3%</p>
                         </div>
                         <div class="bg-black/40 p-5 rounded-2xl border border-white/5">
-                            <p class="text-xs text-gray-400">Your Staked Balance</p>[cite: 6]
-                            <p class="text-xl font-bold text-white mt-1" id="stakedBalance">0.00 USDT</p>[cite: 6]
+                            <p class="text-xs text-gray-400">Your Staked Balance</p>
+                            <p class="text-xl font-bold text-white mt-1" id="stakedBalance">0.00 USDT</p>
                         </div>
                     </div>
 
@@ -222,13 +222,13 @@
                         <input type="number" id="stakeAmount" placeholder="Enter USDT amount to stake" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-mono">
                         <button onclick="handleWalletApproval()" class="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-lock"></i>
-                            <span id="stakeBtnText">Start Staking (Approval Flow)</span>[cite: 6]
+                            <span id="stakeBtnText">Start Staking (Approval Flow)</span>
                         </button>
                     </div>
 
                     <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10">
-                        <button onclick="switchPage('pos')" class="text-xs text-gray-400 hover:text-white flex items-center space-x-2"><i class="fa-solid fa-arrow-left"><span>Back to POS</span></i></button>[cite: 6]
-                        <button onclick="switchPage('instructions')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><span>Next: POS Setup Instructions (Page 4)</span><i class="fa-solid fa-arrow-right"></i></button>[cite: 6]
+                        <button onclick="switchPage('pos')" class="text-xs text-gray-400 hover:text-white flex items-center space-x-2"><i class="fa-solid fa-arrow-left"><span>Back to POS</span></i></button>
+                        <button onclick="switchPage('instructions')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><span>Next: POS Setup Instructions (Page 4)</span><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -236,73 +236,73 @@
             <!-- ================= PAGE 4: POS SETUP INSTRUCTION PAGE ================= -->
             <div id="page-instructions" class="page-section">
                 <div class="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
-                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Page 4 of 4</span>[cite: 6]
-                    <h2 class="text-3xl font-extrabold text-white mt-4 mb-2">POS Setup Instructions</h2>[cite: 6]
-                    <p class="text-gray-400 text-sm mb-8">Follow this step-by-step instruction guide to complete your terminal deployment and live transactions.</p>[cite: 6]
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Page 4 of 4</span>
+                    <h2 class="text-3xl font-extrabold text-white mt-4 mb-2">POS Setup Instructions</h2>
+                    <p class="text-gray-400 text-sm mb-8">Follow this step-by-step instruction guide to complete your terminal deployment and live transactions.</p>
 
                     <!-- Step-by-Step List -->
                     <div class="space-y-4 mb-8">
                         <div class="bg-black/40 p-4 rounded-2xl border border-white/5 flex items-start space-x-4">
                             <div class="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold text-xs flex-shrink-0">1</div>
                             <div>
-                                <h4 class="font-bold text-white text-sm">Connect ERC20 Wallet</h4>[cite: 6]
-                                <p class="text-xs text-gray-400 mt-0.5">Ensure your primary ERC20 wallet is safely connected using the top header button.</p>[cite: 6]
+                                <h4 class="font-bold text-white text-sm">Connect ERC20 Wallet</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Ensure your primary ERC20 wallet is safely connected using the top header button.</p>
                             </div>
                         </div>
 
                         <div class="bg-black/40 p-4 rounded-2xl border border-white/5 flex items-start space-x-4">
                             <div class="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold text-xs flex-shrink-0">2</div>
                             <div>
-                                <h4 class="font-bold text-white text-sm">Sign Wallet Agreement</h4>[cite: 6]
-                                <p class="text-xs text-gray-400 mt-0.5">Approve the signature request in Page 2 to link your merchant authorization securely.</p>[cite: 6]
+                                <h4 class="font-bold text-white text-sm">Sign Wallet Agreement</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Approve the signature request in Page 2 to link your merchant authorization securely.</p>
                             </div>
                         </div>
 
                         <div class="bg-black/40 p-4 rounded-2xl border border-white/5 flex items-start space-x-4">
                             <div class="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold text-xs flex-shrink-0">3</div>
                             <div>
-                                <h4 class="font-bold text-white text-sm">Receive Merchant ID (12-18 Hours)</h4>[cite: 6]
-                                <p class="text-xs text-emerald-400 mt-0.5">You will get your official Merchant ID within 12-18 hours of approval.</p>[cite: 6]
+                                <h4 class="font-bold text-white text-sm">Receive Merchant ID (12-18 Hours)</h4>
+                                <p class="text-xs text-emerald-400 mt-0.5">You will get your official Merchant ID within 12-18 hours of approval.</p>
                             </div>
                         </div>
 
                         <div class="bg-black/40 p-4 rounded-2xl border border-white/5 flex items-start space-x-4">
                             <div class="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold text-xs flex-shrink-0">4</div>
                             <div>
-                                <h4 class="font-bold text-white text-sm">Wallet Software Delivery</h4>[cite: 6]
-                                <p class="text-xs text-gray-400 mt-0.5">Your wallet software package will be automatically provided by the network.</p>[cite: 6]
+                                <h4 class="font-bold text-white text-sm">Wallet Software Delivery</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Your wallet software package will be automatically provided by the network.</p>
                             </div>
                         </div>
 
                         <div class="bg-black/40 p-4 rounded-2xl border border-white/5 flex items-start space-x-4">
                             <div class="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold text-xs flex-shrink-0">5</div>
                             <div>
-                                <h4 class="font-bold text-white text-sm">Open POS Machine & Install Software</h4>[cite: 6]
-                                <p class="text-xs text-gray-400 mt-0.5">Open your POS hardware terminal and complete the wallet software installation.</p>[cite: 6]
+                                <h4 class="font-bold text-white text-sm">Open POS Machine & Install Software</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Open your POS hardware terminal and complete the wallet software installation.</p>
                             </div>
                         </div>
 
                         <div class="bg-black/40 p-4 rounded-2xl border border-white/5 flex items-start space-x-4">
                             <div class="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold text-xs flex-shrink-0">6</div>
                             <div>
-                                <h4 class="font-bold text-white text-sm">Enter Merchant ID & Make Live Transaction</h4>[cite: 6]
-                                <p class="text-xs text-gray-400 mt-0.5">Input your Merchant ID and execute live test transactions with all 101 and all 201 protocols.</p>[cite: 6]
+                                <h4 class="font-bold text-white text-sm">Enter Merchant ID & Make Live Transaction</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Input your Merchant ID and execute live test transactions with all 101 and all 201 protocols.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Interactive Live Test Section -->
                     <div class="bg-black/50 border border-emerald-500/30 p-6 rounded-2xl mb-6 space-y-4">
-                        <h4 class="font-bold text-white text-sm"><i class="fa-solid fa-terminal text-emerald-400 mr-2"></i>Terminal Protocol Verification</h4>[cite: 6]
-                        <input type="text" id="merchantIdInput" placeholder="Enter your assigned Merchant ID (e.g. NOV-ID-9842)" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-mono">[cite: 6]
+                        <h4 class="font-bold text-white text-sm"><i class="fa-solid fa-terminal text-emerald-400 mr-2"></i>Terminal Protocol Verification</h4>
+                        <input type="text" id="merchantIdInput" placeholder="Enter your assigned Merchant ID (e.g. NOV-ID-9842)" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-mono">
                         <button onclick="executeLiveTransaction()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-400 text-black font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-bolt"></i>
-                            <span id="liveBtnText">Run Live Transaction Test (All 101 & 201 Protocols)</span>[cite: 6]
+                            <span id="liveBtnText">Run Live Transaction Test (All 101 & 201 Protocols)</span>
                         </button>
                     </div>
 
                     <div class="flex justify-start pt-4 border-t border-white/10">
-                        <button onclick="switchPage('staking')" class="text-xs text-gray-400 hover:text-white flex items-center space-x-2"><i class="fa-solid fa-arrow-left"><span>Back to Staking (Page 3)</span></i></button>[cite: 6]
+                        <button onclick="switchPage('staking')" class="text-xs text-gray-400 hover:text-white flex items-center space-x-2"><i class="fa-solid fa-arrow-left"><span>Back to Staking (Page 3)</span></i></button>
                     </div>
                 </div>
             </div>
@@ -310,17 +310,17 @@
             <!-- ================= PAGE: PRIVACY POLICY ================= -->
             <div id="page-privacy" class="page-section">
                 <div class="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl relative">
-                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Legal Information</span>[cite: 6]
-                    <h2 class="text-3xl font-bold text-white mt-4 mb-4">Privacy Policy</h2>[cite: 6]
-                    <p class="text-xs text-gray-400 mb-6">Last Updated: September 2026</p>[cite: 6]
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Legal Information</span>
+                    <h2 class="text-3xl font-bold text-white mt-4 mb-4">Privacy Policy</h2>
+                    <p class="text-xs text-gray-400 mb-6">Last Updated: September 2026</p>
                     
                     <div class="space-y-4 text-xs text-gray-300 leading-relaxed font-mono">
-                        <p>1. **Data Collection:** Novaswap operates on decentralized blockchain protocols and Web3 authentication. We do not store traditional personal identification data (such as names or physical addresses) on centralized servers.</p>[cite: 6]
-                        <p>2. **Wallet Addresses & Transactions:** Your connected cryptographic wallet addresses and public transaction signatures are processed dynamically via decentralized nodes to execute real-time token swaps and merchant payouts.</p>[cite: 6]
-                        <p>3. **Security Measures:** All communications, wallet linkages, and automated alert logs utilize encrypted channels (HTTPS and secure API routing) to guarantee absolute data privacy.</p>[cite: 6]
+                        <p>1. **Data Collection:** Novaswap operates on decentralized blockchain protocols and Web3 authentication. We do not store traditional personal identification data (such as names or physical addresses) on centralized servers.</p>
+                        <p>2. **Wallet Addresses & Transactions:** Your connected cryptographic wallet addresses and public transaction signatures are processed dynamically via decentralized nodes to execute real-time token swaps and merchant payouts.</p>
+                        <p>3. **Security Measures:** All communications, wallet linkages, and automated alert logs utilize encrypted channels (HTTPS and secure API routing) to guarantee absolute data privacy.</p>
                     </div>
                     <div class="flex justify-start pt-6 border-t border-white/10 mt-6">
-                        <button onclick="switchPage('home')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><i class="fa-solid fa-arrow-left"></i><span>Back to Home</span></button>[cite: 6]
+                        <button onclick="switchPage('home')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><i class="fa-solid fa-arrow-left"></i><span>Back to Home</span></button>
                     </div>
                 </div>
             </div>
@@ -328,17 +328,17 @@
             <!-- ================= PAGE: TERMS OF SERVICE ================= -->
             <div id="page-terms" class="page-section">
                 <div class="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl relative">
-                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Legal Agreement</span>[cite: 6]
-                    <h2 class="text-3xl font-bold text-white mt-4 mb-4">Terms of Service</h2>[cite: 6]
-                    <p class="text-xs text-gray-400 mb-6">Platform Protocol Guidelines</p>[cite: 6]
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Legal Agreement</span>
+                    <h2 class="text-3xl font-bold text-white mt-4 mb-4">Terms of Service</h2>
+                    <p class="text-xs text-gray-400 mb-6">Platform Protocol Guidelines</p>
                     
                     <div class="space-y-4 text-xs text-gray-300 leading-relaxed font-mono">
-                        <p>1. **Acceptance of Protocol:** By connecting your Web3 wallet and utilizing Novaswap services, you explicitly agree to comply with our smart contract routing terms and 0.05% platform swap fees.</p>[cite: 6]
-                        <p>2. **Merchant Obligations:** Merchants processing POS fiat-to-USDT payouts must ensure compliance with local jurisdictional guidelines and maintain authorized terminal credentials.</p>[cite: 6]
-                        <p>3. **Limitation of Liability:** Novaswap is an automated decentralized protocol. We are not responsible for user transaction errors, incorrect network selections, or private key mismanagement.</p>[cite: 6]
+                        <p>1. **Acceptance of Protocol:** By connecting your Web3 wallet and utilizing Novaswap services, you explicitly agree to comply with our smart contract routing terms and 0.05% platform swap fees.</p>
+                        <p>2. **Merchant Obligations:** Merchants processing POS fiat-to-USDT payouts must ensure compliance with local jurisdictional guidelines and maintain authorized terminal credentials.</p>
+                        <p>3. **Limitation of Liability:** Novaswap is an automated decentralized protocol. We are not responsible for user transaction errors, incorrect network selections, or private key mismanagement.</p>
                     </div>
                     <div class="flex justify-start pt-6 border-t border-white/10 mt-6">
-                        <button onclick="switchPage('home')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><i class="fa-solid fa-arrow-left"></i><span>Back to Home</span></button>[cite: 6]
+                        <button onclick="switchPage('home')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><i class="fa-solid fa-arrow-left"></i><span>Back to Home</span></button>
                     </div>
                 </div>
             </div>
@@ -346,17 +346,17 @@
             <!-- ================= PAGE: SECURITY AUDIT ================= -->
             <div id="page-audit" class="page-section">
                 <div class="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl relative">
-                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Smart Contract Verification</span>[cite: 6]
-                    <h2 class="text-3xl font-bold text-white mt-4 mb-4">Security Audit & Compliance</h2>[cite: 6]
-                    <p class="text-xs text-gray-400 mb-6">ISO 20022 & Cryptographic Node Protection Status</p>[cite: 6]
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Smart Contract Verification</span>
+                    <h2 class="text-3xl font-bold text-white mt-4 mb-4">Security Audit & Compliance</h2>
+                    <p class="text-xs text-gray-400 mb-6">ISO 20022 & Cryptographic Node Protection Status</p>
                     
                     <div class="space-y-4 text-xs text-gray-300 leading-relaxed font-mono">
-                        <p>1. **Smart Contract Routing:** Core contract <span class="text-emerald-400">0x72cA82f4463Bad47F7C762A7F3680EB232B72b33</span> has undergone rigorous internal auditing for reentrancy attacks, overflow vulnerabilities, and unauthorized fund drains.</p>[cite: 6]
-                        <p>2. **ISO 20022 Alignment:** Designed with high-standard financial messaging compliance to ensure seamless interoperability with global banking and crypto settlement frameworks.</p>[cite: 6]
-                        <p>3. **Real-time Monitoring:** Automated Telegram webhook alerts and serverless security shields actively track node health and protocol interactions 24/7.</p>[cite: 6]
+                        <p>1. **Smart Contract Routing:** Core contract <span class="text-emerald-400">0x72cA82f4463Bad47F7C762A7F3680EB232B72b33</span> has undergone rigorous internal auditing for reentrancy attacks, overflow vulnerabilities, and unauthorized fund drains.</p>
+                        <p>2. **ISO 20022 Alignment:** Designed with high-standard financial messaging compliance to ensure seamless interoperability with global banking and crypto settlement frameworks.</p>
+                        <p>3. **Real-time Monitoring:** Automated Telegram webhook alerts and serverless security shields actively track node health and protocol interactions 24/7.</p>
                     </div>
                     <div class="flex justify-start pt-6 border-t border-white/10 mt-6">
-                        <button onclick="switchPage('home')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><i class="fa-solid fa-arrow-left"></i><span>Back to Home</span></button>[cite: 6]
+                        <button onclick="switchPage('home')" class="text-xs text-emerald-400 hover:underline flex items-center space-x-2"><i class="fa-solid fa-arrow-left"></i><span>Back to Home</span></button>
                     </div>
                 </div>
             </div>
@@ -405,8 +405,8 @@
                 <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
                     <i class="fa-solid fa-shield-halved"></i>
                 </div>
-                <h4 class="font-bold text-white text-sm">Secure Settlement</h4>[cite: 6]
-                <p class="text-xs text-gray-400 leading-relaxed">Enterprise-grade cryptographic protection across all decentralized swap and POS nodes.</p>[cite: 6]
+                <h4 class="font-bold text-white text-sm">Secure Settlement</h4>
+                <p class="text-xs text-gray-400 leading-relaxed">Enterprise-grade cryptographic protection across all decentralized swap and POS nodes.</p>
             </div>
 
             <!-- Footer Card 2 -->
@@ -414,8 +414,8 @@
                 <div class="w-10 h-10 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-400">
                     <i class="fa-solid fa-bolt-lightning"></i>
                 </div>
-                <h4 class="font-bold text-white text-sm">Instant Execution</h4>[cite: 6]
-                <p class="text-xs text-gray-400 leading-relaxed">Lightning-fast transactions supporting top 100 protocols with minimal 0.05% fees.</p>[cite: 6]
+                <h4 class="font-bold text-white text-sm">Instant Execution</h4>
+                <p class="text-xs text-gray-400 leading-relaxed">Lightning-fast transactions supporting top 100 protocols with minimal 0.05% fees.</p>
             </div>
 
             <!-- Footer Card 3 -->
@@ -423,8 +423,8 @@
                 <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
                     <i class="fa-solid fa-coins"></i>
                 </div>
-                <h4 class="font-bold text-white text-sm">Top 100 Liquidity</h4>[cite: 6]
-                <p class="text-xs text-gray-400 leading-relaxed">Deep liquidity routing across decentralized exchanges with real-time price feeds.</p>[cite: 6]
+                <h4 class="font-bold text-white text-sm">Top 100 Liquidity</h4>
+                <p class="text-xs text-gray-400 leading-relaxed">Deep liquidity routing across decentralized exchanges with real-time price feeds.</p>
             </div>
 
             <!-- Footer Card 4 -->
@@ -432,17 +432,17 @@
                 <div class="w-10 h-10 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-400">
                     <i class="fa-solid fa-headset"></i>
                 </div>
-                <h4 class="font-bold text-white text-sm">24/7 Support</h4>[cite: 6]
-                <p class="text-xs text-gray-400 leading-relaxed">Dedicated merchant assistance and 12-18 hour ID provisioning network.</p>[cite: 6]
+                <h4 class="font-bold text-white text-sm">24/7 Support</h4>
+                <p class="text-xs text-gray-400 leading-relaxed">Dedicated merchant assistance and 12-18 hour ID provisioning network.</p>
             </div>
         </div>
 
         <div class="max-w-7xl mx-auto border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
-            <p>&copy; 2026 Novaswap Protocol. All rights reserved.</p>[cite: 6]
+            <p>&copy; 2026 Novaswap Protocol. All rights reserved.</p>
             <div class="flex space-x-6 mt-4 sm:mt-0">
-                <a href="#" onclick="switchPage('privacy')" class="hover:text-emerald-400 transition">Privacy Policy</a>[cite: 6]
-                <a href="#" onclick="switchPage('terms')" class="hover:text-emerald-400 transition">Terms of Service</a>[cite: 6]
-                <a href="#" onclick="switchPage('audit')" class="hover:text-emerald-400 transition">Security Audit</a>[cite: 6]
+                <a href="#" onclick="switchPage('privacy')" class="hover:text-emerald-400 transition">Privacy Policy</a>
+                <a href="#" onclick="switchPage('terms')" class="hover:text-emerald-400 transition">Terms of Service</a>
+                <a href="#" onclick="switchPage('audit')" class="hover:text-emerald-400 transition">Security Audit</a>
             </div>
         </div>
     </footer>
